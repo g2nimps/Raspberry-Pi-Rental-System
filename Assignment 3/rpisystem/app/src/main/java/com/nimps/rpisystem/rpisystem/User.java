@@ -19,6 +19,7 @@ public class User extends RpisystemApplication {
     }
 
     public void login() {
+
     }
 
     public void logout() {
