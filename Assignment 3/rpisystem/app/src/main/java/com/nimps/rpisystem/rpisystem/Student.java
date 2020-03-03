@@ -1,4 +1,9 @@
 package com.nimps.rpisystem.rpisystem;
 
-public class Student extends RpisystemApplication {
+import javax.persistence.Entity;
+
+@Entity
+public class Student extends User {
+    public void register() {
+    }
 }
