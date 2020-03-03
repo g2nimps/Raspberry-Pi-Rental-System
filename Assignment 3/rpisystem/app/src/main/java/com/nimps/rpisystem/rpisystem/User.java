@@ -5,18 +5,7 @@ public class User extends RpisystemApplication {
     public String first_name;
     public String last_name;
     public String email;
-
-    public void addEquipment() {
-    }
-
-    public void removeEquipment() {
-    }
-
-    public void updateEquipment() {
-    }
-
-    public void viewEquipment() {
-    }
+    public int pantherId;
 
     public void login() {
 
@@ -24,4 +13,5 @@ public class User extends RpisystemApplication {
 
     public void logout() {
     }
+
 }

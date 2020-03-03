@@ -1,11 +1,25 @@
 package com.nimps.rpisystem.rpisystem;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
+@Entity
 public class Equipment extends RpisystemApplication {
+    @Id
     public int id;
     public String dateCheckOut;
     public String dateCheckedIn;
-    public enum device_condition {GOOD, DAMAGED, LOST};
 
+    public int getId() {
+        return id;
+    }
+
+    public String getDateCheckOut() {
+        return dateCheckOut;
+    }
+
+    public String getDateCheckedIn() {
+        return dateCheckedIn;
+    }
 
     public void checkOut() {
         // Summary: User scans item to check out
