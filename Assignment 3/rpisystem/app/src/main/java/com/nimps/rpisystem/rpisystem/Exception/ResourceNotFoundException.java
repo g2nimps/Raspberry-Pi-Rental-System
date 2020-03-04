@@ -1,4 +1,4 @@
-package com.example.easynotes.exception;
+package com.nimps.rpisystem.rpisystem.Exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

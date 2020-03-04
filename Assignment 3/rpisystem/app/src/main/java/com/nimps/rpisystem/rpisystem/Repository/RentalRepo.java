@@ -1,4 +1,4 @@
-package com.nimps.rpisystem.rpisystem.repository;
+package com.nimps.rpisystem.rpisystem.Repository;
 import com.nimps.rpisystem.rpisystem.Rentals;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
