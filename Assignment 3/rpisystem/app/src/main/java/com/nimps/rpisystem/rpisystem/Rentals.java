@@ -16,15 +16,15 @@ public class Rentals extends RpisystemApplication {
     public int student_panther_id;
 
     @Column(nullable = false, updatable = false)
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     @CreatedDate
-    public Timestamp checkout_date;
+    public Date checkout_date;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    public Timestamp check_in_date;
+    @Temporal(TemporalType.DATE)
+    public Date check_in_date;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    public Timestamp due_date;
+    @Temporal(TemporalType.DATE)
+    public Date due_date;
     public int checkout_by;
     public int checkin_by;
     public int kit_barcode;
@@ -45,23 +45,23 @@ public class Rentals extends RpisystemApplication {
         this.student_panther_id = student_panther_id;
     }
 
-    public Timestamp getCheckout_date() {
+    public Date getCheckout_date() {
         return checkout_date;
     }
 
-    public void setCheckout_date(Timestamp checkout_date) {
+    public void setCheckout_date(Date checkout_date) {
         this.checkout_date = checkout_date;
     }
 
-    public Timestamp getCheck_in_date() {
+    public Date getCheck_in_date() {
         return check_in_date;
     }
 
-    public void setCheck_in_date(Timestamp check_in_date) {
+    public void setCheck_in_date(Date check_in_date) {
         this.check_in_date = check_in_date;
     }
 
-    public Timestamp getDue_date() {
+    public Date getDue_date() {
         return due_date;
     }
 
