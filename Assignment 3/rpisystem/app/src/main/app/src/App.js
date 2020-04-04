@@ -43,7 +43,7 @@ class App extends Component {
     }
 
     hello = () => {
-        fetch('/api/home')
+        fetch('/api/users')
             .then(response => response.text())
             .then(message => {
                 this.setState({message: message});
