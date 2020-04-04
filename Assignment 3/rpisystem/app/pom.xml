@@ -16,7 +16,7 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <frontend-src-dir>${project.basedir}/src/main/app</frontend-src-dir>
+        <frontend-src-dir>${project.basedir}</frontend-src-dir>
         <node.version>v12.3.1</node.version>
         <yarn.version>v1.16.0</yarn.version>
         <frontend-maven-plugin.version>1.7.6</frontend-maven-plugin.version>

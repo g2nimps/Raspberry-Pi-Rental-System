@@ -12,6 +12,6 @@ public class homeController {
     @GetMapping("/api/home")
     @ResponseBody
     public String hello() {
-        return "Hello World!";
+        return "Hello World! This is coming from the Api Home Controller.";
     }
 }
