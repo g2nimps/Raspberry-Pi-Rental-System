@@ -1,17 +1,15 @@
-package com.nimps.rpisystem.rpisystem.Controller;
+package Controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.*;
-import com.nimps.rpisystem.rpisystem.Exception.ResourceNotFoundException;
 
-@RestController
+@Controller
 public class homeController {
-    @GetMapping("/api/home")
+
+    @RequestMapping("/")
     @ResponseBody
-    public String hello() {
+    String hello() {
         return "Hello World!";
     }
 }
