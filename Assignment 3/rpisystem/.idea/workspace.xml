@@ -2,30 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3335c08f-5a81-4107-9851-a1256b5e7c67" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/NIMPS.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/app/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/app/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/app/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/app/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/app/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/app/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/app/public/logo192.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/logo192.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/app/public/logo512.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/logo512.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/app/public/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/app/public/robots.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/robots.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/app/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/app/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/app/src/App.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/App.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/app/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/app/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/app/src/logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/logo.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/app/src/serviceWorker.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/serviceWorker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/app/src/setupTests.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/setupTests.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/app/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/app/yarn.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/Controller/homeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Controller/homeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +63,7 @@
       <updated>1583095086581</updated>
       <workItem from="1583095089970" duration="2737000" />
       <workItem from="1586012442573" duration="5758000" />
-      <workItem from="1586019676814" duration="5158000" />
+      <workItem from="1586019676814" duration="5759000" />
     </task>
     <servers />
   </component>
