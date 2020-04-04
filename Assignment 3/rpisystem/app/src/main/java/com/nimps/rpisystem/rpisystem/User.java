@@ -1,16 +1,24 @@
 package com.nimps.rpisystem.rpisystem;
+
 import javax.persistence.*;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
-public class User extends RpisystemApplication {
+@Table(name = "user")
+@EntityListeners(AuditingEntityListener.class)
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int id;
+
     public String first_name;
     public String last_name;
+
     @Column(unique=true)
     public String email;
+
     public String password;
+
     @Column(unique=true)
     public int pantherId;
 
@@ -19,6 +27,7 @@ public class User extends RpisystemApplication {
     }
 
     public void logout() {
+
     }
 
     public int getId() {
