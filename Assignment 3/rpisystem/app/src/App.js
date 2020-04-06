@@ -30,13 +30,15 @@
 //
 //export default App;
 
-import React, {Component} from 'react';
+import React, {Component, useState} from 'react';
 import logo from './NIMPS.png';
 import './App.css';
+import { Button } from 'react-bootstrap';
 
 class App extends Component {
 
     state = {};
+    const [isAuthenticated, userHasAuthenticated] = useState(false);
 
     componentDidMount() {
         setInterval(this.hello, 250);
@@ -52,8 +54,10 @@ class App extends Component {
 
     render() {
         return (
+        <Routes appProps{{ isAuthenticated, userHasAuthenticated }}/>
             <div className="App">
                 <header className="App-header">
+                    <Button variant="primary">Login</Button>{' '}
                     <img src={logo} className="App-logo" alt="logo"/>
                     <h1 className="App-title">{this.state.message}</h1>
                     <h1>that is all</h1>
