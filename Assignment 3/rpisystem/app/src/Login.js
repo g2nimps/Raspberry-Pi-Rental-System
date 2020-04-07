@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Form, Container, Row, Col, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, Route, withRouter, Switch } from "react-router-dom";
 import "./Login.css";
 import BasicNavbar from "./Components/basic-navbar";
 

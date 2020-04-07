@@ -6,3 +6,4 @@ com/nimps/rpisystem/rpisystem/Services/IRentalService.class
 com/nimps/rpisystem/rpisystem/Services/EquipmentServices.class
 com/nimps/rpisystem/rpisystem/Controller/EquipmentController.class
 com/nimps/rpisystem/rpisystem/Services/IUserService.class
+com\nimps\rpisystem\rpisystem\config\WebMvcConfig.class
