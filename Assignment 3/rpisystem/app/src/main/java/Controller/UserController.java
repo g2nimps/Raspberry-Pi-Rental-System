@@ -12,9 +12,10 @@ import java.util.List;
 
 
 @RestController
+@RequestMapping("/api")
 public class UserController {
 
-//    @Autowired
+    @Autowired
     UserRepo UserRepo;
 
     public UserController(UserRepo UserRepo){
@@ -22,25 +23,26 @@ public class UserController {
     }
 
     // Get All User
-    @GetMapping("/api/users")
+    @GetMapping("/users")
     public List<User> getAllUsers() {
         return UserRepo.findAll();
     }
+
     // Create a new User
-    @PostMapping("/api/users")
+    @PostMapping("/users")
     public User createUser(@Valid @RequestBody User user) {
         return UserRepo.save(user);
     }
 
     // Get a Single User
-    @GetMapping("/api/users/{id}")
+    @GetMapping("/users/{id}")
     public User getUserById(@PathVariable(value = "id") Long userId) {
         return UserRepo.findById(userId)
                 .orElseThrow(() -> new ResourceNotFoundException("User", "id", userId));
     }
 
     // Update a User
-    @PutMapping("/api/users/{id}")
+    @PutMapping("/users/{id}")
     public User updateUser(@PathVariable(value = "id") Long userId, @Valid @RequestBody User userDetails) {
 
         User user = UserRepo.findById(userId)
@@ -57,7 +59,7 @@ public class UserController {
         return updatedUser;
     }
     // Delete a User
-    @DeleteMapping("/api/users/{id}")
+    @DeleteMapping("/users/{id}")
     public ResponseEntity<?> deleteUser(@PathVariable(value = "id") Long userId) {
         User user = UserRepo.findById(userId)
                 .orElseThrow(() -> new ResourceNotFoundException("User", "id", userId));

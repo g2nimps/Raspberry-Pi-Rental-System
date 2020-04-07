@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Form, Container, Row, Col, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, Route, withRouter, Switch } from "react-router-dom";
 import "./Register.css";
 import BasicNavbar from "./Components/basic-navbar";
 
@@ -37,7 +37,7 @@ class Register extends Component{
                                     <Form.Control style={{fontSize:"15px"}} type="password" placeholder="Password" />
                                 </Form.Group>
                                 <Form.Group controlId="formGroupPassword">
-                                    <Form.Label style={{fontSize:"20px"}}>Re-Password</Form.Label>
+                                    <Form.Label style={{fontSize:"20px"}}>Re-enter Password</Form.Label>
                                     <Form.Control style={{fontSize:"15px"}} type="password" placeholder="Re-Password" />
                                 </Form.Group>
                                 <Form.Group>
@@ -48,7 +48,7 @@ class Register extends Component{
                             </Form>
                             {/* <Link className="registerLink" to="/register">Don't have an account? Click here to register</Link> */}
                             <div className="text-center" style={{paddingTop:"10px"}}>
-                                <Button style={{fontSize:"15px"}} variant="primary">Login</Button>
+                                <Button style={{fontSize:"15px"}} variant="primary">Register</Button>
                             </div>
                         </Col>
                         <Col xs={2} className="right-sidebar"></Col>
