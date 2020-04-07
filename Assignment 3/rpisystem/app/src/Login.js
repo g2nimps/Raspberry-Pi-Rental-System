@@ -25,7 +25,6 @@ class Login extends Component{
                                 </Form.Group>
                                 <Link className="registerLink" to="/register">Don't have an account? Click here to register</Link>
                             </Form>
-                            {/* <Link className="registerLink" to="/register">Don't have an account? Click here to register</Link> */}
                             <div className="text-center" style={{paddingTop:"10px"}}>
                                 <Button style={{fontSize:"15px"}} variant="primary">Login</Button>
                             </div>

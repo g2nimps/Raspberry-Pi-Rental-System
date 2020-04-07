@@ -1,6 +1,12 @@
 package com.nimps.rpisystem.rpisystem;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.persistence.*;
+import java.util.Objects;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
@@ -21,6 +27,16 @@ public class User {
 
     @Column(unique=true)
     public int pantherId;
+
+    public User(){ }
+
+    public User(int id, String first_name, String last_name, String password, int pantherId){
+        this.id = id;
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.password = password;
+        this.pantherId = pantherId;
+    }
 
     public void login() {
 
