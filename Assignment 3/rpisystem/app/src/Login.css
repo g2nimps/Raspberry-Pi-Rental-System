@@ -1,0 +1,15 @@
+.Login{
+    padding: 60px 0;
+    height: 100%;
+}
+
+.Login form{
+    /* text-align: center; */
+    /* justify-content: center;  */
+    margin: 0 auto;
+    max-width: 320px;
+}
+
+h1{
+    text-align: center;
+}
