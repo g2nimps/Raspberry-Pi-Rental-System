@@ -26,7 +26,8 @@ public class UserController {
     public List<User> getAllUsers() {
         return userService.findAll();
     }
-    // Create a new User
+
+//     Create a new User
 //    @PostMapping("/api/users")
 //    public User createUser(@Valid @RequestBody User user) {
 //        return userService.save(user);

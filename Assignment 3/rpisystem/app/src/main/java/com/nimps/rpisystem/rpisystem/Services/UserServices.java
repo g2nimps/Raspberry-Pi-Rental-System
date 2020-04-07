@@ -16,6 +16,17 @@ public class UserServices implements IUserService{
         return (List<User>) userRepo.findAll();
     }
 
+//    public String createNewUser(User newUser){
+//        List<User> users = findAll();
+//        for(int i = 0; i < users.size(); i++){
+//            User user = users.get(i);
+//            if(user.email == newUser.email){
+//                return "Email already in use";
+//            }
+//        }
+//        users.add(newUser);
+//        return "User added successfully";
+//    }
 //    public User findById(int id){
 //        List<User> users = findAll();
 //        for(int i = 0; i < users.size(); i++){

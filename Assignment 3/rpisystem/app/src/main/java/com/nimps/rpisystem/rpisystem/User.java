@@ -26,7 +26,7 @@ public class User {
     public String password;
 
     @Column(unique=true)
-    public String pantherId;
+    public int pantherId;
 
     public User(){ }
 
@@ -86,11 +86,11 @@ public class User {
         this.password = password;
     }
 
-    public String getPantherId() {
+    public int getPantherId() {
         return pantherId;
     }
 
-    public void setPantherId(String pantherId) {
+    public void setPantherId(int pantherId) {
         this.pantherId = pantherId;
     }
 }
