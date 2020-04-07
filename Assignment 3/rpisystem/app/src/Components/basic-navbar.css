@@ -1,0 +1,12 @@
+.brand{
+    text-align: center;
+    position: relative;
+    transform: translate(0,10%);
+}
+
+.navbar{
+  background-color:#bc1142;
+  color: white;
+  /* background-color: ; */
+}
+
