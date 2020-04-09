@@ -4,6 +4,7 @@ import './index.css';
 import Home from './App';
 import Login from './Login';
 import Register from './Register';
+import Equipment from './Equipment';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
@@ -21,6 +22,9 @@ function App(){
                 
                 <Route path="/register" exact>
                     <Register />
+                </Route>
+                <Route path="/equipment" exact>
+                    <Equipment />
                 </Route>
             </Switch>
         </div>

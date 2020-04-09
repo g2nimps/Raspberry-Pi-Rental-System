@@ -5,18 +5,18 @@ import javax.persistence.*;
 public class Equipment extends RpisystemApplication {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public int id;
+    public long id;
     public String item_model;
     public String description;
     public String serial;
     @Column(unique=true)
     public String barcode;
     public enum device_condition {GOOD, DAMAGED, LOST};
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
