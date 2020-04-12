@@ -45,3 +45,7 @@
 }
 
 nav.navbar-light {border-radius:0px;}
+
+.checkout-form{
+  display: block;
+}

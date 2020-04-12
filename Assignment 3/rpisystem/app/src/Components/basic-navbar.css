@@ -11,3 +11,13 @@
   /* background-color: ; */
 }
 
+.nav{
+  width: 100%;
+}
+
+#nav-dropdown{
+  /* justify-content: end; */
+  position: relative;
+  right: 100px;
+}
+

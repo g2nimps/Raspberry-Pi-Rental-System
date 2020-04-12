@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Home from './App';
+import Application from './App';
 import Login from './Login';
 import Register from './Register';
 import Equipment from './Equipment';
@@ -13,7 +13,7 @@ function App(){
         <div>
             <Switch>
                 <Route path="/" exact>
-                    <Home />
+                    <Application />
                 </Route>
 
                 <Route path="/login" exact>
