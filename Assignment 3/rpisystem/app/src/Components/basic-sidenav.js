@@ -11,10 +11,10 @@ class BasicSideNav extends Component{
                 <h1>Equipment Inventory</h1>
                 <p>Due Date: <span>01/01/2020</span></p>
                 <hr></hr>
-                <Link to="/equipment/raspberry-pi" className="link">Checkout Raspberry Pi</Link>
-                <Link to="/equipment/raspberry-pi" className="link">Checkin Raspberry Pi</Link>
-                <Link to="/equipment/raspberry-pi" className="link">View Checked Out Rentals</Link>
-                <Link to="/equipment/raspberry-pi" className="link">View Late Rentals</Link>
+                <Link to="/checkout" className="link">Checkout Raspberry Pi</Link>
+                <Link to="/checkin" className="link">Return Raspberry Pi Rental</Link>
+                <Link to="/equipment/rented" className="link">View Checked Out Rentals</Link>
+                <Link to="/equipment/late" className="link">View Late Rentals</Link>
                 <Link to="mailto:paulallen@gsu.edu" className="link">Contact Network Admin</Link>
                 <Link to=" https://gsutech.service-now.com/sp#request" className="link">Get Technical Support</Link>
             </Col>

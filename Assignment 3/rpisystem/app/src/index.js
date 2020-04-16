@@ -5,6 +5,8 @@ import Application from './App';
 import Login from './Login';
 import Register from './Register';
 import Equipment from './Equipment';
+import Checkin from './Checkin';
+import Checkout from './Checkout';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
@@ -16,7 +18,7 @@ function App(){
                     <Application />
                 </Route>
 
-                <Route path="/equipment" exact>
+                <Route path="/equipment/:pathParam1?" exact>
                     <Equipment />
                 </Route>
 
@@ -26,6 +28,14 @@ function App(){
                 
                 <Route path="/register" exact>
                     <Register />
+                </Route>
+
+                <Route path="/checkin/:pathParam1?" exact>
+                    <Checkin />
+                </Route>
+
+                <Route path="/checkout/:pathParam1?" exact>
+                    <Checkout />
                 </Route>
             </Switch>
         </div>

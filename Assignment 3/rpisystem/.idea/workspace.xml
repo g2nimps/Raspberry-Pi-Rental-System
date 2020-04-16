@@ -2,26 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3335c08f-5a81-4107-9851-a1256b5e7c67" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/rpi_white.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/Checkin.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/Checkin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/Checkout.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/Checkout.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/14/46/f4e422f21e1af6fbdd803c57abe04212883ad540a7aacc4a370abc3bcaf769db9aed5a81fe04aec076f15d3a71ee43673a4babcad3627a233c4ffc679ddf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/c1/8d/c790f01977161d5caf0e2561845f31d2fd772da38162e4124fcc8f93b3ead09a7984cb2465190367f7a254b4a13d3d0845e435d85b612369df4c686e3949" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/node_modules/.cache/terser-webpack-plugin/content-v2/sha512/f0/31/087bd55dc96615cf950f64bd8cf3a225ccf4157ba84eb1d6eee1858972c78c161090bff44bda390a021fd3676cc8bc5be4e7cd20f99738f4ade6db57389c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/Components/basic-navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Components/basic-navbar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/Components/basic-navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Components/basic-navbar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/Components/basic-sidenav.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Components/basic-sidenav.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/Components/basic-sidenav.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Components/basic-sidenav.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/Equipment.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Equipment.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/Equipment.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Equipment.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="CSS File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
@@ -38,14 +42,15 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\admin\Documents\GitHub\Raspberry-Pi-Rental-System\Assignment 3\rpisystem\app" />
       <recent name="C:\Users\admin\Documents\GitHub\Raspberry-Pi-Rental-System\Assignment 3\rpisystem\app\src" />
+      <recent name="C:\Users\admin\Documents\GitHub\Raspberry-Pi-Rental-System\Assignment 3\rpisystem\app" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\admin\Documents\GitHub\Raspberry-Pi-Rental-System\Assignment 3\rpisystem\app\public" />
@@ -88,7 +93,7 @@
       <workItem from="1586263696398" duration="8785000" />
       <workItem from="1586445744181" duration="938000" />
       <workItem from="1586466021070" duration="27000" />
-      <workItem from="1587006363434" duration="11724000" />
+      <workItem from="1587006363434" duration="14144000" />
     </task>
     <servers />
   </component>
