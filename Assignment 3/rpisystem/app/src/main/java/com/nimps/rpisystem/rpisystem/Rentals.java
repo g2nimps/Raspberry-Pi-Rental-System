@@ -5,13 +5,15 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Date;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "rentals")
 @EntityListeners(AuditingEntityListener.class)
 public class Rentals extends RpisystemApplication {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public int rental_id;
+    public long id;
 
     public int student_panther_id;
 
@@ -29,69 +31,67 @@ public class Rentals extends RpisystemApplication {
     public int checkin_by;
     public int kit_barcode;
 
-    public int getRental_id() {
-        return rental_id;
+    public long getRentalId() {
+        return id;
     }
 
-    public void setRental_id(int rental_id) {
-        this.rental_id = rental_id;
+    public void setRentalId(long id) {
+        this.id = id;
     }
 
-    public int getStudent_panther_id() {
+    public int getStudentPantherId() {
         return student_panther_id;
     }
 
-    public void setStudent_panther_id(int student_panther_id) {
+    public void setStudentPantherId(int student_panther_id) {
         this.student_panther_id = student_panther_id;
     }
 
-    public Date getCheckout_date() {
+    public Date getCheckoutDate() {
         return checkout_date;
     }
 
-    public void setCheckout_date(Date checkout_date) {
+    public void setCheckoutDate(Date checkout_date) {
         this.checkout_date = checkout_date;
     }
 
-    public Date getCheck_in_date() {
+    public Date getCheckInDate() {
         return check_in_date;
     }
 
-    public void setCheck_in_date(Date check_in_date) {
+    public void setCheckInDate(Date check_in_date) {
         this.check_in_date = check_in_date;
     }
 
-    public Date getDue_date() {
+    public Date getDueDate() {
         return due_date;
     }
 
-    public void setDue_date(Timestamp due_date) {
+    public void setDueDate(Date due_date) {
         this.due_date = due_date;
     }
 
-    public int getCheckout_by() {
+    public int getCheckoutBy() {
         return checkout_by;
     }
 
-    public void setCheckout_by(int checkout_by) {
+    public void setCheckoutBy(int checkout_by) {
         this.checkout_by = checkout_by;
     }
 
-    public int getCheckin_by() {
+    public int getCheckinBy() {
         return checkin_by;
     }
 
-    public void setCheckin_by(int checkin_by) {
+    public void setCheckinBy(int checkin_by) {
         this.checkin_by = checkin_by;
     }
 
-    public int getKit_barcode() {
+    public int getKitBarcode() {
         return kit_barcode;
     }
 
-    public void setKit_barcode(int kit_barcode) {
+    public void setKitBarcode(int kit_barcode) {
         this.kit_barcode = kit_barcode;
     }
-
-
 }
