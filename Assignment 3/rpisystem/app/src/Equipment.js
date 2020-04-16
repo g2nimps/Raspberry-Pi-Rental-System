@@ -1,10 +1,32 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Row, Col, Table  } from 'react-bootstrap';
 import './Equipment.css';
 import BasicSideNav from './Components/basic-sidenav';
 import BasicNavbar from './Components/basic-navbar';
+import axios from 'axios';
 
 export default function Equipment(){
+    // const[table, setTable] = useState("");
+
+    function createTable(){
+        let table = []
+
+        axios.get('/api/rentals')
+            .then(function(response){
+                for(let i = 0; i < response.data; i++){
+                    let children = []
+                    for(let j = 0; response.data[i]; j++){
+                        children.push(<td>{`Column ${j + 1}`}</td>)
+                    }
+                    table.push(<tr>{children}</tr>)
+                }
+                return table
+            })
+            .catch(function(err){
+                console.log(err)
+            })
+    }
+
     if(!localStorage.getItem('firstName')){
         return(
             <div>
