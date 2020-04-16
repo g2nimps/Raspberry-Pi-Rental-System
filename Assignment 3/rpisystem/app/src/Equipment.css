@@ -1,8 +1,10 @@
 .column{
-    border: 1px solid black;
     /* height: 100%; */
 }
+.equipColumn {
+    padding:20px 10px;
 
+}
 .inventory{
     height: 100%;
 }

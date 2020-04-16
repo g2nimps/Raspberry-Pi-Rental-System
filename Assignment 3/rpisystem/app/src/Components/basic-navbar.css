@@ -5,16 +5,18 @@
 }
 
 .navbar{
-  /* background-color:#bc1142; */
   background-color:#A30F39;
   color: white;
-  /* background-color: ; */
+    margin-bottom:0;
 }
-
 .nav{
   width: 100%;
 }
 
+nav.navbar-light {border-radius:0px;}
+.dropdown.nav-item {background:#2f2929; border-radius: 5px;padding:0 7px;margin-right: 15px;letter-spacing:1px;}
+.dropdown.nav-item > a.nav-link {color:white !important;}
+.dropdown-menu.show {font-size:1.1em;}
 #nav-dropdown{
   /* justify-content: end; */
   position: relative;

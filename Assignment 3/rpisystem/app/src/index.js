@@ -16,15 +16,16 @@ function App(){
                     <Application />
                 </Route>
 
+                <Route path="/equipment" exact>
+                    <Equipment />
+                </Route>
+
                 <Route path="/login" exact>
                     <Login/>
                 </Route>
                 
                 <Route path="/register" exact>
                     <Register />
-                </Route>
-                <Route path="/equipment" exact>
-                    <Equipment />
                 </Route>
             </Switch>
         </div>

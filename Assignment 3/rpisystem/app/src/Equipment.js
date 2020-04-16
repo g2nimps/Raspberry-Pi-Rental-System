@@ -19,7 +19,8 @@ export default function Equipment(){
             <BasicNavbar />
             <Row className="inventory">
                 <BasicSideNav />
-                <Col xs={9} className="column">
+                <Col xs={9} className="column equipColumn">
+                    <h1>Raspberry Pi Inventory</h1>
                     <Table striped bordered hover responsive>
                         <thead>
                         <tr>
@@ -56,6 +57,36 @@ export default function Equipment(){
                         </tr>
                         <tr>
                             <td>3</td>
+                            <td>01/01/2020</td>
+                            <td>Sam Woodruff</td>
+                            <td>Julie Henderson</td>
+                            <td>01/01/2020</td>
+                            <td>01/01/2020</td>
+                            <td>123123123</td>
+                            <td>368282828</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>01/01/2020</td>
+                            <td>Sam Woodruff</td>
+                            <td>Julie Henderson</td>
+                            <td>01/01/2020</td>
+                            <td>01/01/2020</td>
+                            <td>123123123</td>
+                            <td>368282828</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>01/01/2020</td>
+                            <td>Sam Woodruff</td>
+                            <td>Julie Henderson</td>
+                            <td>01/01/2020</td>
+                            <td>01/01/2020</td>
+                            <td>123123123</td>
+                            <td>368282828</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
                             <td>01/01/2020</td>
                             <td>Sam Woodruff</td>
                             <td>Julie Henderson</td>
