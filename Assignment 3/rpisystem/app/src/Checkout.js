@@ -1,10 +1,15 @@
-import React from 'react';
-import { Row, Col, Table  } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Row, Col, Container, Form, Button } from 'react-bootstrap';
+import './Equipment.css';
 import './Checkout.css';
 import BasicSideNav from './Components/basic-sidenav';
 import BasicNavbar from './Components/basic-navbar';
+import axios from 'axios';
 
 export default function Checkout(){
+    const [pantherId, setPantherId] = useState("")
+    const [kitBarcode, setKitBarcode] = useState("")
+    // const [checkedOutBy, setCheckedOutBy] = useState("")
     if(!localStorage.getItem('firstName')){
         return(
             <div>
@@ -12,6 +17,25 @@ export default function Checkout(){
                 <h1>Please log in to use Equipment Page.</h1>
             </div>
         );
+    }
+    function checkout(){
+        if(localStorage.getItem("firstName")){
+            verifyRental()
+            axios.post('/api/rentals', {
+                student_panther_id: pantherId,
+                kit_barcode: kitBarcode,
+                check_out_date: new Date(),
+                due_date: new Date('May 25, 2020 11:59:00'),
+                check_out_by: localStorage.getItem("firstName"),
+            })
+        }
+        else{
+            console.log("Rental info not correct")
+        }
+    }
+
+    function verifyRental(){
+
     }
 
     return(
@@ -21,82 +45,19 @@ export default function Checkout(){
                 <BasicSideNav />
                 <Col xs={9} className="column equipColumn">
                     <h1>Checkout A Raspberry Pi</h1>
-                    <Table striped bordered hover responsive>
-                        <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Checkin Date</th>
-                            <th>Checked In By</th>
-                            <th>Checked Out By</th>
-                            <th>Checkout Date</th>
-                            <th>Due Date</th>
-                            <th>Kit Barcode</th>
-                            <th>Panther ID</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>01/01/2020</td>
-                            <td>Sam Woodruff</td>
-                            <td>Julie Henderson</td>
-                            <td>01/01/2020</td>
-                            <td>01/01/2020</td>
-                            <td>123123123</td>
-                            <td>368282828</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>01/01/2020</td>
-                            <td>Sam Woodruff</td>
-                            <td>Julie Henderson</td>
-                            <td>01/01/2020</td>
-                            <td>01/01/2020</td>
-                            <td>123123123</td>
-                            <td>368282828</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>01/01/2020</td>
-                            <td>Sam Woodruff</td>
-                            <td>Julie Henderson</td>
-                            <td>01/01/2020</td>
-                            <td>01/01/2020</td>
-                            <td>123123123</td>
-                            <td>368282828</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>01/01/2020</td>
-                            <td>Sam Woodruff</td>
-                            <td>Julie Henderson</td>
-                            <td>01/01/2020</td>
-                            <td>01/01/2020</td>
-                            <td>123123123</td>
-                            <td>368282828</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>01/01/2020</td>
-                            <td>Sam Woodruff</td>
-                            <td>Julie Henderson</td>
-                            <td>01/01/2020</td>
-                            <td>01/01/2020</td>
-                            <td>123123123</td>
-                            <td>368282828</td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td>01/01/2020</td>
-                            <td>Sam Woodruff</td>
-                            <td>Julie Henderson</td>
-                            <td>01/01/2020</td>
-                            <td>01/01/2020</td>
-                            <td>123123123</td>
-                            <td>368282828</td>
-                        </tr>
-                        </tbody>
-                    </Table>
+                    <Form className="checkout-form">
+                        <Form.Row>
+                            <Form.Group as={Col}>
+                                <Form.Label>Student PantherId</Form.Label>
+                                <Form.Control value={pantherId} onChange={e => setPantherId(e.target.value)} placeholder="Student's PantherId"></Form.Control>
+                            </Form.Group>
+                            <Form.Group as={Col}>
+                                <Form.Label>Equipment Kit Barcode</Form.Label>
+                                <Form.Control value={kitBarcode} onChange={e => setKitBarcode(e.target.value)} placeholder="Kit Barcode"></Form.Control>
+                            </Form.Group>
+                        </Form.Row>
+                        <Button onClick={checkout} variant="danger">Checkout</Button>
+                    </Form>
                 </Col>
             </Row>
         </div>
