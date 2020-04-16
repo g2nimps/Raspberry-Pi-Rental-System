@@ -11,34 +11,72 @@ export default function Register(){
     const[email, setEmail] = useState("");
     const[password, setPassword] = useState("");
     const[pantherId, setPantherId] = useState("");
+    const[validated, setValidated] = useState("");
+    const[validEmail, setValidEmail] = useState("");
     const history = useHistory();
 
+    function validateEmail(){
+        console.log("validateEmail")
+        axios.get("/api/users")
+            .then(function(response){
+                let data = response.data
+                for(let i = 0; i < data.length; i++){
+                    if(data[i].email === email){
+                        console.log("false")
+                        return false
+                    }
+                }
+                (console.log("true"))
+                return true
+            })
+            .catch(function(err){
+                console.log(err)
+            })
+    }
+
     function validateInfo(){
+        setValidEmail(validateEmail())
+
         if(first_name === ""){
             console.log("First name cannot be empty")
-            return false
+            setValidated(false)
+            return validated
         }
         if(last_name === ""){
             console.log("Last name cannot be empty")
-            return false
+            setValidated(false)
+            return validated
         }
         if(!email.includes('@')){
             console.log("Invalid Email")
-            return false
+            setValidated(false)
+            return validated
         }
+
+        if(!validEmail){
+            console.log("Email is already used")
+            setValidated(false)
+            return validated
+        }
+        
         if(password.length < 8){
             console.log("Password does not meet length requirement")
-            return false
+            setValidated(false)
+            return validated
         }
         if(!parseInt(pantherId)){
             console.log("PantherId must be a string of numbers")
-            return false
+            setValidated(false)
+            return validated
         }
-        return true
+
+        return validated
     }
 
     function register(){
-        if(validateInfo()){
+        var postUser = validateInfo()
+        // console.log(postUser)
+        if(postUser){
             axios.post('/api/users',{
                 first_name: first_name,
                 last_name: last_name,
