@@ -4,6 +4,7 @@ import { Link, useHistory } from "react-router-dom";
 import "./Login.css";
 import BasicNavbar from "./Components/basic-navbar";
 import axios from 'axios';
+import Notifications from './Components/ notifications';
 
 export default function Login(){
     const [email, setEmail] = useState("");
@@ -16,9 +17,11 @@ export default function Login(){
                 response.data.forEach(user => {
                     if(email === user.email && password === user.password){
                         localStorage.setItem('firstName', user.first_name)
+                        localStorage.setItem('lastName', user.last_name)
                         history.push("/");
                     }
                 })
+                Notifications.loginSuccessful();
             })
             .catch(function(err){
                 console.log(err)
@@ -26,7 +29,7 @@ export default function Login(){
     }
 
     function verifyCredentials(){
-        
+
     }
 
     return (
