@@ -16,8 +16,8 @@ class BasicSideNav extends Component{
                 <Link to="/checkin" className="link">Return Raspberry Pi Rental</Link>
                 <Link to="/rental/rented" className="link">View Checked Out Rentals</Link>
                 <Link to="/rental/late" className="link">View Late Rentals</Link>
-                <Link to="mailto:paulallen@gsu.edu" className="link">Contact Network Admin</Link>
-                <Link to=" https://gsutech.service-now.com/sp#request" className="link">Get Technical Support</Link>
+                <Link to="/message" className="link">Contact Network Admin</Link>
+                <Link to="/support" className="link">Get Technical Support</Link>
             </Col>
         );
     }

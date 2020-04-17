@@ -41,7 +41,7 @@ export default function Application(){
                     <CardColumns className={"column_stack"}>
 
                         <CardLink type={"dark"}         link={"/checkout"} title={"Checkout Raspberry Pi"}          icon=<Icon.FaRaspberryPi/> description={"description"}/>
-                        <CardLink type={"info"}         link={"mailto:paul@gsu.edu"} title={"Contact Network Admin"}          icon=<Icon.FaEnvelopeOpenText/> description={"description"}/>
+                        <CardLink type={"info"}         link={"/message"} title={"Contact Network Admin"}          icon=<Icon.FaEnvelopeOpenText/> description={"description"}/>
                         <CardLink type={"secondary"}    link={"/rental/rented"} title={"View Checked Out Rentals"}       icon=<Icon.FaExchangeAlt/> description={"description"}/>
 
                         <CardLink type={"secondary"}    link={"/checkin"} title={"Return Raspberry Pi Rental"}     icon=<Icon.FaBoxOpen/> description={"description"}/>
@@ -50,7 +50,7 @@ export default function Application(){
 
                         <CardLink type={"secondary"}    link={"/rental/late"} title={"View Late Rentals"}              icon=<Icon.FaExclamationTriangle/> description={"description"}/>
                         <CardLink type={"secondary"}    link={"/equipment/damaged"} title={"View Broken Equipment"}          icon=<Icon.FaBug/> description={"description"}/>
-                        <CardLink type={"danger"}       link={"https://gsutech.service-now.com/sp#request"} title={"Get Technical Support"}          icon=<Icon.FaHeadset/> description={"description"}/>
+                        <CardLink type={"danger"}       link={"/support"} title={"Get Technical Support"}          icon=<Icon.FaHeadset/> description={"description"}/>
 
                                  </CardColumns>
                 </Row>

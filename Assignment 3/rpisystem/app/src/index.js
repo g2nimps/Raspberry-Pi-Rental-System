@@ -10,6 +10,7 @@ import Checkout from './Checkout';
 import Rental from './Rental';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import CardColumns from "react-bootstrap/CardColumns";
 
 function App(){
     return (
@@ -42,6 +43,16 @@ function App(){
                 <Route path="/checkout/:pathParam1?" exact>
                     <Checkout />
                 </Route>
+
+                <Route path='/message' component={() => {
+                    window.location.href = 'mailto:pbryan@cs.gsu.edu';
+                    return null;
+                }}/>
+
+                <Route path='/support' component={() => {
+                    window.location.href = 'https://gsutech.service-now.com/sp#request';
+                    return null;
+                }}/>
             </Switch>
         </div>
     );
