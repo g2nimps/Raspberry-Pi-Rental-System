@@ -58,6 +58,7 @@ export default function Checkout(){
                                 <Form.Control value={kitBarcode} onChange={e => setKitBarcode(e.target.value)} placeholder="Kit Barcode"></Form.Control>
                             </Form.Group>
                         </Form.Row>
+                        <hr/>
                         <Form.Group controlId="formBasicCheckbox">
                             <div className={"disclaimer"}>
                                 <Badge variant="secondary">Disclaimer</Badge>

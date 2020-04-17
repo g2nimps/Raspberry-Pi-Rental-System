@@ -49,6 +49,7 @@ export default function Application(){
                         <CardLink type={"secondary"}    link={"#"} title={"Manage Due Date"}                icon=<Icon.FaCalendarAlt/> description={"description"}/>
 
                         <CardLink type={"secondary"}    link={"/equipment/late"} title={"View Late Rentals"}              icon=<Icon.FaExclamationTriangle/> description={"description"}/>
+                        <CardLink type={"secondary"}    link={"/equipment/damaged"} title={"View Broken Equipment"}          icon=<Icon.FaBug/> description={"description"}/>
                         <CardLink type={"danger"}       link={"https://gsutech.service-now.com/sp#request"} title={"Get Technical Support"}          icon=<Icon.FaHeadset/> description={"description"}/>
 
                                  </CardColumns>
