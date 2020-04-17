@@ -4,6 +4,7 @@ import './Equipment.css';
 import BasicSideNav from './Components/basic-sidenav';
 import BasicNavbar from './Components/basic-navbar';
 import axios from 'axios';
+import Badge from 'react-bootstrap/Badge';
 
 export default function Equipment(){
     // const[table, setTable] = useState("");
@@ -46,61 +47,54 @@ export default function Equipment(){
                     <Table striped bordered hover responsive>
                         <thead>
                         <tr>
-                            <th>Kit #</th>
+                            <th>Model</th>
                             <th>Status</th>
                             <th>Barcode</th>
                             <th>Description</th>
-                            <th>Item Model</th>
                             <th>Serial</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr>
-                            <td>1</td>
-                            <td>Good</td>
-                            <td>00000000</td>
-                            <td>Raspberry Pi 3 Kit</td>
                             <td>RPI_001</td>
+                            <td><Badge variant="dark">Good</Badge></td>
+                            <td>00000000</td>
+                            <td>Raspberry Pi 3 Kit</td>
                             <td>1234567</td>
                         </tr>
                         <tr>
-                            <td>2</td>
-                            <td>Good</td>
-                            <td>00000000</td>
-                            <td>Raspberry Pi 3 Kit</td>
                             <td>RPI_002</td>
+                            <td><Badge variant="dark">Good</Badge></td>
+                            <td>00000000</td>
+                            <td>Raspberry Pi 3 Kit</td>
                             <td>1234567</td>
                         </tr>
                         <tr>
-                            <td>3</td>
-                            <td>Good</td>
-                            <td>00000000</td>
-                            <td>Raspberry Pi 3 Kit</td>
                             <td>RPI_003</td>
+                            <td><Badge variant="dark">Good</Badge></td>
+                            <td>00000000</td>
+                            <td>Raspberry Pi 3 Kit</td>
                             <td>1234567</td>
                         </tr>
                         <tr>
-                            <td>4</td>
-                            <td>Good</td>
-                            <td>00000000</td>
-                            <td>Raspberry Pi 3 Kit</td>
                             <td>RPI_004</td>
+                            <td><Badge variant="danger">Damaged</Badge></td>
+                            <td>00000000</td>
+                            <td>Raspberry Pi 3 Kit</td>
                             <td>1234567</td>
                         </tr>
                         <tr>
-                            <td>5</td>
-                            <td>Good</td>
-                            <td>00000000</td>
-                            <td>Raspberry Pi 3 Kit</td>
                             <td>RPI_005</td>
+                            <td><Badge variant="dark">Good</Badge></td>
+                            <td>00000000</td>
+                            <td>Raspberry Pi 3 Kit</td>
                             <td>1234567</td>
                         </tr>
                         <tr>
-                            <td>6</td>
-                            <td>Good</td>
+                            <td>RPI_006</td>
+                            <td><Badge variant="danger">Damaged</Badge></td>
                             <td>00000000</td>
                             <td>Raspberry Pi 3 Kit</td>
-                            <td>RPI_006</td>
                             <td>1234567</td>
                         </tr>
                         </tbody>

@@ -16,7 +16,7 @@ export default function BasicNavbar(){
         const firstName = localStorage.getItem('firstName');
         return(
             <Navbar className="navbar">
-                <Navbar.Brand className="brand" href="/" style={{color:"white", fontSize:"20px"}}>RPI Rental System</Navbar.Brand>
+                <Navbar.Brand className="brand" href="/" style={{color:"white", fontSize:"18px"}}>RPI Rental System</Navbar.Brand>
                 <Nav className="nav">
 
                     <NavDropdown title={firstName} id="nav-dropdown" style={{color:"white", fontSize:"15px"}}>
@@ -24,6 +24,9 @@ export default function BasicNavbar(){
                     </NavDropdown>
                     <Nav.Item>
                         <Nav.Link href="/equipment" style={{color:"white", fontSize:"15px"}}>Equipment</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item>
+                        <Nav.Link href="/rental" style={{color:"white", fontSize:"15px"}}>Rentals</Nav.Link>
                     </Nav.Item>
                 </Nav>
             </Navbar>
