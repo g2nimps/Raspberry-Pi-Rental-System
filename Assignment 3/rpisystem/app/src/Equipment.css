@@ -13,3 +13,9 @@
 h1, h4{
     text-align: center;
 }
+
+.table-responsive {
+    padding-right: 15px;
+    margin-top:15px;
+    font-size:1.1em;
+}
