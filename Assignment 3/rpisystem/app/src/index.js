@@ -7,6 +7,7 @@ import Register from './Register';
 import Equipment from './Equipment';
 import Checkin from './Checkin';
 import Checkout from './Checkout';
+import Rental from './Rental';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
@@ -20,6 +21,10 @@ function App(){
 
                 <Route path="/equipment/:pathParam1?" exact>
                     <Equipment />
+                </Route>
+
+                <Route path="/rental/:pathParam1?" exact>
+                    <Rental />
                 </Route>
 
                 <Route path="/login" exact>
