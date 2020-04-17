@@ -4,6 +4,7 @@ import './Equipment.css';
 import BasicSideNav from './Components/basic-sidenav';
 import BasicNavbar from './Components/basic-navbar';
 import axios from 'axios';
+import Badge from 'react-bootstrap/Badge';
 
 export default function Equipment(){
     // const[table, setTable] = useState("");
@@ -42,80 +43,59 @@ export default function Equipment(){
             <Row className="inventory">
                 <BasicSideNav />
                 <Col xs={9} className="column equipColumn">
-                    <h1>Raspberry Pi Inventory</h1>
+                    <h1>Equipment List</h1>
                     <Table striped bordered hover responsive>
                         <thead>
                         <tr>
-                            <th>#</th>
-                            <th>Checkin Date</th>
-                            <th>Checked In By</th>
-                            <th>Checked Out By</th>
-                            <th>Checkout Date</th>
-                            <th>Due Date</th>
-                            <th>Kit Barcode</th>
-                            <th>Panther ID</th>
+                            <th>Model</th>
+                            <th>Status</th>
+                            <th>Barcode</th>
+                            <th>Description</th>
+                            <th>Serial</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr>
-                            <td>1</td>
-                            <td>01/01/2020</td>
-                            <td>Sam Woodruff</td>
-                            <td>Julie Henderson</td>
-                            <td>01/01/2020</td>
-                            <td>01/01/2020</td>
-                            <td>123123123</td>
-                            <td>368282828</td>
+                            <td>RPI_001</td>
+                            <td><Badge variant="dark">Good</Badge></td>
+                            <td>00000000</td>
+                            <td>Raspberry Pi 3 Kit</td>
+                            <td>1234567</td>
                         </tr>
                         <tr>
-                            <td>2</td>
-                            <td>01/01/2020</td>
-                            <td>Sam Woodruff</td>
-                            <td>Julie Henderson</td>
-                            <td>01/01/2020</td>
-                            <td>01/01/2020</td>
-                            <td>123123123</td>
-                            <td>368282828</td>
+                            <td>RPI_002</td>
+                            <td><Badge variant="dark">Good</Badge></td>
+                            <td>00000000</td>
+                            <td>Raspberry Pi 3 Kit</td>
+                            <td>1234567</td>
                         </tr>
                         <tr>
-                            <td>3</td>
-                            <td>01/01/2020</td>
-                            <td>Sam Woodruff</td>
-                            <td>Julie Henderson</td>
-                            <td>01/01/2020</td>
-                            <td>01/01/2020</td>
-                            <td>123123123</td>
-                            <td>368282828</td>
+                            <td>RPI_003</td>
+                            <td><Badge variant="dark">Good</Badge></td>
+                            <td>00000000</td>
+                            <td>Raspberry Pi 3 Kit</td>
+                            <td>1234567</td>
                         </tr>
                         <tr>
-                            <td>4</td>
-                            <td>01/01/2020</td>
-                            <td>Sam Woodruff</td>
-                            <td>Julie Henderson</td>
-                            <td>01/01/2020</td>
-                            <td>01/01/2020</td>
-                            <td>123123123</td>
-                            <td>368282828</td>
+                            <td>RPI_004</td>
+                            <td><Badge variant="danger">Damaged</Badge></td>
+                            <td>00000000</td>
+                            <td>Raspberry Pi 3 Kit</td>
+                            <td>1234567</td>
                         </tr>
                         <tr>
-                            <td>5</td>
-                            <td>01/01/2020</td>
-                            <td>Sam Woodruff</td>
-                            <td>Julie Henderson</td>
-                            <td>01/01/2020</td>
-                            <td>01/01/2020</td>
-                            <td>123123123</td>
-                            <td>368282828</td>
+                            <td>RPI_005</td>
+                            <td><Badge variant="dark">Good</Badge></td>
+                            <td>00000000</td>
+                            <td>Raspberry Pi 3 Kit</td>
+                            <td>1234567</td>
                         </tr>
                         <tr>
-                            <td>6</td>
-                            <td>01/01/2020</td>
-                            <td>Sam Woodruff</td>
-                            <td>Julie Henderson</td>
-                            <td>01/01/2020</td>
-                            <td>01/01/2020</td>
-                            <td>123123123</td>
-                            <td>368282828</td>
+                            <td>RPI_006</td>
+                            <td><Badge variant="danger">Damaged</Badge></td>
+                            <td>00000000</td>
+                            <td>Raspberry Pi 3 Kit</td>
+                            <td>1234567</td>
                         </tr>
                         </tbody>
                     </Table>

@@ -8,7 +8,14 @@
 .inventory{
     height: 100%;
 }
-
+.inventory form {background:#f3f3f3;padding:20px 30px;font-size:1.2em;border-radius:3px;margin:20px;}
+.inventory input.form-control, .inventory button {font-size:.8em;}
 h1, h4{
     text-align: center;
+}
+
+.table-responsive {
+    padding-right: 15px;
+    margin-top:15px;
+    font-size:1.1em;
 }

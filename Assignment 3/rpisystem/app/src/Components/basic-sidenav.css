@@ -3,7 +3,7 @@
     margin: 0;
     background-color:#443c3e;
     padding:30px;
-    height: calc(100vh - 60px);
+    min-height: calc(100vh - 60px);
 }
 
 .sidebar p {
@@ -22,11 +22,6 @@
     text-align:center;
     display:block;
 }
-.table-responsive {
-    padding-right: 15px;
-    margin-top:10px;
-    font-size:1.3em;
-}
 .link {
     text-decoration:none;
     color: #ceccdc;
@@ -34,11 +29,11 @@
     padding: 0 20px;
     line-height:2em;
     display:block;
-    font-size:1.9em;
+    font-size:1.2em;
     border-bottom: 1px solid #7b6e7238;
 }
 
-.link:hover {
+.link:hover, .link:active {
     text-decoration:none;
     color: #dc1a50;
 }
