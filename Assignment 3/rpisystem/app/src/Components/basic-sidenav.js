@@ -9,7 +9,7 @@ class BasicSideNav extends Component{
             <Col xs={3} className="sidebar">
                     <Image src={rpilogo} alt={"Logo"} />
                 <h1>Equipment Inventory</h1>
-                <p>Due Date: <span>01/01/2020</span></p>
+                <p>Due Date: <span>06/01/2020</span></p>
                 <hr></hr>
                 <Link to="/equipment" className="link">Equipment Status</Link>
                 <Link to="/checkout" className="link">Checkout Raspberry Pi</Link>
