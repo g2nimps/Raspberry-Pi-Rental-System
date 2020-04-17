@@ -32,13 +32,18 @@
   bottom:0px;
 }
 
+.column_stack.card-columns {margin-top:50px;}
+.column_stack.card-columns svg {width:70px;height:70px;display:block;margin: 10px auto 20px;}
+.column_stack.card-columns .card {margin-bottom:25px;text-align:center;font-size:1.2em;padding-bottom:20px;}
+.column_stack.card-columns .card:hover {border: 1px solid #9E9E9E;}
+.column_stack.card-columns .card:hover .card-header {opacity:0.8;color:#f7e7e9;}
+
+
 
 
 .checkout-form{
   display: block;
 }
-
-body {
-
-  font-size:14px;
+.h1, h1 {
+  font-size: 1.7rem !important;
 }

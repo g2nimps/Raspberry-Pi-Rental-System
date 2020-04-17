@@ -5,6 +5,8 @@ import { Row, Col, Container, Form, Button, Card } from 'react-bootstrap';
 import CardColumns from 'react-bootstrap/CardColumns';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
+import * as Icon from 'react-icons/fa';
+
 
 export default function Application(){
     function CardLink(props) {
@@ -16,13 +18,10 @@ export default function Application(){
              text={props.type.toLowerCase() === 'light' ? 'dark' : 'white'}
              style={{ width: '18rem' }}
          >
-             <Card.Header>{props.title}</Card.Header>
-             <Card.Body>
+             <Card.Header>
                  {props.icon}
-                 <Card.Text>
-                     {props.description}
-                 </Card.Text>
-             </Card.Body>
+                 {props.title}
+             </Card.Header>
          </Card>
          <br />
          </Link>
@@ -34,17 +33,21 @@ export default function Application(){
         <div>
             <BasicNavbar />
             <Container>
-                <Row col={9}>
-                    <CardColumns>
-                        <CardLink type={"secondary"} link={"dark"} title={"ah yeah"} icon={"icon"} description={"description"}/>
-                        <CardLink type={"secondary"} link={"dark"} title={"ah yeah"} icon={"icon"} description={"description"}/>
-                        <CardLink type={"secondary"} link={"dark"} title={"ah yeah"} icon={"icon"} description={"description"}/>
-                        <CardLink type={"secondary"} link={"dark"} title={"ah yeah"} icon={"icon"} description={"description"}/>
-                        <CardLink type={"secondary"} link={"dark"} title={"ah yeah"} icon={"icon"} description={"description"}/>
-                        <CardLink type={"secondary"} link={"dark"} title={"ah yeah"} icon={"icon"} description={"description"}/>
-                        <CardLink type={"secondary"} link={"dark"} title={"ah yeah"} icon={"icon"} description={"description"}/>
-                        <CardLink type={"secondary"} link={"dark"} title={"ah yeah"} icon={"icon"} description={"description"}/>
-                    </CardColumns>
+                <Row>
+                    <CardColumns className={"column_stack"}>
+
+                        <CardLink type={"dark"}         link={"/checkout"} title={"Checkout Raspberry Pi"}          icon=<Icon.FaRaspberryPi/> description={"description"}/>
+                        <CardLink type={"info"}         link={"mailto:paul@gsu.edu"} title={"Contact Network Admin"}          icon=<Icon.FaEnvelopeOpenText/> description={"description"}/>
+                        <CardLink type={"secondary"}    link={"/equipment/rented"} title={"View Checked Out Rentals"}       icon=<Icon.FaExchangeAlt/> description={"description"}/>
+
+                        <CardLink type={"secondary"}    link={"/checkin"} title={"Return Raspberry Pi Rental"}     icon=<Icon.FaBoxOpen/> description={"description"}/>
+                        <CardLink type={"secondary"}    link={"#"} title={"Account Information"}            icon=<Icon.FaAddressCard/> description={"description"}/>
+                        <CardLink type={"secondary"}    link={"#"} title={"Manage Due Date"}                icon=<Icon.FaCalendarAlt/> description={"description"}/>
+
+                        <CardLink type={"secondary"}    link={"/equipment/late"} title={"View Late Rentals"}              icon=<Icon.FaExclamationTriangle/> description={"description"}/>
+                        <CardLink type={"danger"}       link={"https://gsutech.service-now.com/sp#request"} title={"Get Technical Support"}          icon=<Icon.FaHeadset/> description={"description"}/>
+
+                                 </CardColumns>
                 </Row>
             </Container>
         </div>
