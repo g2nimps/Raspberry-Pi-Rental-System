@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { Row, Col, Container, Form, Button } from 'react-bootstrap';
+import Jumbotron from 'react-bootstrap/Jumbotron';
 import './Equipment.css';
 import './Checkout.css';
 import BasicSideNav from './Components/basic-sidenav';
 import BasicNavbar from './Components/basic-navbar';
+import Badge from 'react-bootstrap/Badge';
 import axios from 'axios';
 
 export default function Checkout(){
@@ -56,7 +58,17 @@ export default function Checkout(){
                                 <Form.Control value={kitBarcode} onChange={e => setKitBarcode(e.target.value)} placeholder="Kit Barcode"></Form.Control>
                             </Form.Group>
                         </Form.Row>
+                        <Form.Group controlId="formBasicCheckbox">
+                            <div className={"disclaimer"}>
+                                <Badge variant="secondary">Disclaimer</Badge>
+                                <p >
+                                    The student listed is responsible for the safekeeping and prompt return of all items listed on this form as checked out. If one or more components, becomes damaged or lost, the student is responsible for providing a replacement. Please speak with your instructor on what items are suitable. Failure to return all required material by the return date listed on this form may result in but not limited to a failing grade of zero for this course, a hold on your student account, and any additional legal action Georgia State University may choose to pursue in accordance with the missing or damaged equipment.
+                                </p>
+                                <Form.Check type="checkbox" label="Student Agrees To The Disclaimer" />
+                            </div>
+                        </Form.Group>
                         <Button onClick={checkout} variant="danger">Checkout</Button>
+
                     </Form>
                 </Col>
             </Row>
