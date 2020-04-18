@@ -15,27 +15,27 @@ export default function Register(){
     const[validEmail, setValidEmail] = useState("");
     const history = useHistory();
 
-    function validateEmail(){
-        console.log("validateEmail")
-        axios.get("/api/users")
-            .then(function(response){
-                let data = response.data
-                for(let i = 0; i < data.length; i++){
-                    if(data[i].email === email){
-                        console.log("false")
-                        return false
-                    }
-                }
-                (console.log("true"))
-                return true
-            })
-            .catch(function(err){
-                console.log(err)
-            })
-    }
+    // function validateEmail(){
+    //     console.log("validateEmail")
+    //     axios.get("/api/users")
+    //         .then(function(response){
+    //             let data = response.data
+    //             for(let i = 0; i < data.length; i++){
+    //                 if(data[i].email === email){
+    //                     console.log("false")
+    //                     return false
+    //                 }
+    //             }
+    //             (console.log("true"))
+    //             return true
+    //         })
+    //         .catch(function(err){
+    //             console.log(err)
+    //         })
+    // }
 
     function validateInfo(){
-        setValidEmail(validateEmail())
+        // setValidEmail(validateEmail())
 
         if(first_name === ""){
             console.log("First name cannot be empty")
