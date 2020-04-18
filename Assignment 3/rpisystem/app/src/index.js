@@ -4,6 +4,7 @@ import './index.css';
 import Application from './App';
 import Login from './Login';
 import Register from './Register';
+import Account from './Register';
 import Equipment from './Equipment';
 import Checkin from './Checkin';
 import Checkout from './Checkout';
@@ -34,6 +35,10 @@ function App(){
                 
                 <Route path="/register" exact>
                     <Register />
+                </Route>
+
+                <Route path="/account/:pathParam1?" exact>
+                    <Account />
                 </Route>
 
                 <Route path="/checkin/:pathParam1?" exact>
