@@ -43,7 +43,7 @@ export default function Equipment(){
             <Row className="inventory">
                 <BasicSideNav />
                 <Col xs={9} className="column equipColumn">
-                    <h1>Equipment List</h1>
+                    <h1>Inventory | Equipment Status</h1>
                     <Table striped bordered hover responsive>
                         <thead>
                         <tr>

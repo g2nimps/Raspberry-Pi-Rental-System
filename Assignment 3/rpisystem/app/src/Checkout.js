@@ -21,6 +21,7 @@ export default function Checkout(){
         );
     }
     function checkout(){
+        /* this page would create a user, and then */
         if(localStorage.getItem("firstName")){
             verifyRental()
             axios.post('/api/rentals', {
@@ -51,11 +52,11 @@ export default function Checkout(){
                         <Form.Row>
                             <Form.Group as={Col}>
                                 <Form.Label>Student PantherId</Form.Label>
-                                <Form.Control value={pantherId} onChange={e => setPantherId(e.target.value)} placeholder="Student's PantherId"></Form.Control>
+                                <Form.Control value={pantherId} onChange={e => setPantherId(e.target.value)} placeholder="Student's PantherId" required></Form.Control>
                             </Form.Group>
                             <Form.Group as={Col}>
                                 <Form.Label>Equipment Kit Barcode</Form.Label>
-                                <Form.Control value={kitBarcode} onChange={e => setKitBarcode(e.target.value)} placeholder="Kit Barcode"></Form.Control>
+                                <Form.Control value={kitBarcode} onChange={e => setKitBarcode(e.target.value)} placeholder="Kit Barcode" required></Form.Control>
                             </Form.Group>
                         </Form.Row>
                         <hr/>
@@ -65,7 +66,15 @@ export default function Checkout(){
                                 <p >
                                     The student listed is responsible for the safekeeping and prompt return of all items listed on this form as checked out. If one or more components, becomes damaged or lost, the student is responsible for providing a replacement. Please speak with your instructor on what items are suitable. Failure to return all required material by the return date listed on this form may result in but not limited to a failing grade of zero for this course, a hold on your student account, and any additional legal action Georgia State University may choose to pursue in accordance with the missing or damaged equipment.
                                 </p>
-                                <Form.Check type="checkbox" label="Student Agrees To The Disclaimer" />
+
+                                <Form.Group>
+                                    <Form.Check
+                                        required
+                                        label="Student Agrees To The Disclaimer"
+                                        feedback="You must agree before submitting."
+                                    />
+                                </Form.Group>
+
                             </div>
                         </Form.Group>
                         <Button onClick={checkout} variant="danger">Checkout</Button>
