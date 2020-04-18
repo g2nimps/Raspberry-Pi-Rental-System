@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, Container, Row, Col, Button } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import "./Register.css";
@@ -11,21 +11,25 @@ export default function Register(){
     const[email, setEmail] = useState("");
     const[password, setPassword] = useState("");
     const[pantherId, setPantherId] = useState("");
-    const[validated, setValidated] = useState("");
-    // const[validEmail, setValidEmail] = useState("");
+    const[users, setUsers] = useState("");
     const history = useHistory();
 
+    // will get users on initialization of page
+    useEffect(() => {
+        axios.get('/api/users')
+            .then(res => {
+                setUsers(res.data)
+            })
+    });
+
     function validateInfo(){
+        console.log(users)
         if(first_name === ""){
             console.log("First name cannot be empty")
-            // setValidated(false)
-            // return validated
             return false
         }
         if(last_name === ""){
             console.log("Last name cannot be empty")
-            // setValidated(false)
-            // return validated
             return false
         }
         if(!email.includes('@')){
@@ -33,11 +37,12 @@ export default function Register(){
             return false
         }
 
-        // if(!validEmail){
-        //     console.log("Email is already used")
-        //     setValidated(false)
-        //     return validated
-        // }
+        for(var i = 0; i < users.length; i++){
+            if(users[i].email === email){
+                console.log("Email already in use")
+                return false
+            }
+        }
         
         if(password.length < 8){
             console.log(password.length)
@@ -48,14 +53,11 @@ export default function Register(){
             console.log("PantherId must be a string of numbers")
             return false
         }
-        // console.log(validated)
         return true
     }
 
     function register(){
-        var postUser = validateInfo()
-        console.log(postUser)
-        if(postUser){
+        if(validateInfo()){
             axios.post('/api/users',{
                 first_name: first_name,
                 last_name: last_name,

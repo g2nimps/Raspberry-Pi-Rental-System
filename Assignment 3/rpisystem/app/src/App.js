@@ -38,6 +38,7 @@ export default function Application(){
             <BasicNavbar />
             <Container>
                 <Row>
+                    <Col></Col>
                     <CardColumns className={"column_stack"}>
 
                         <CardLink type={"dark"}         link={"/checkout"} title={"Checkout Raspberry Pi"}          icon=<Icon.FaRaspberryPi/> description={"description"}/>
@@ -52,7 +53,9 @@ export default function Application(){
                         <CardLink type={"secondary"}    link={"/equipment/damaged"} title={"View Broken Equipment"}          icon=<Icon.FaTools/> description={"description"}/>
                         <CardLink type={"danger"}       link={"/support"} title={"Get Technical Support"}          icon=<Icon.FaHeadset/> description={"description"}/>
 
-                        </CardColumns>
+                    </CardColumns>
+                    <Col></Col>
+
                 </Row>
             </Container>
         </div>
