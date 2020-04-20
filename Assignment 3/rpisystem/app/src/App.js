@@ -10,23 +10,23 @@ import * as Icon from 'react-icons/fa';
 
 export default function Application(){
     function CardLink(props) {
- return (
-     <>
-         <Link to={props.link} >
-         <Card
-             bg={props.type}
-             text={props.type.toLowerCase() === 'light' ? 'dark' : 'white'}
-             style={{ width: '18rem' }}
-         >
-             <Card.Header>
-                 {props.icon}
-                 {props.title}
-             </Card.Header>
-         </Card>
-         <br />
-         </Link>
-     </>
- );
+        return (
+            <>
+                <Link to={props.link} >
+                <Card
+                    bg={props.type}
+                    text={props.type.toLowerCase() === 'light' ? 'dark' : 'white'}
+                    style={{ width: '18rem' }}
+                >
+                    <Card.Header>
+                        {props.icon}
+                        {props.title}
+                    </Card.Header>
+                </Card>
+                <br />
+                </Link>
+            </>
+        );
     }
 /*
 *  https://react-icons.netlify.app/#/icons/fa
@@ -39,6 +39,7 @@ export default function Application(){
             <Container>
                 <Row>
                     <Col></Col>
+
                     <CardColumns className={"column_stack"}>
 
                         <CardLink type={"dark"}         link={"/checkout"} title={"Checkout Raspberry Pi"}          icon=<Icon.FaRaspberryPi/> description={"description"}/>
@@ -54,8 +55,8 @@ export default function Application(){
                         <CardLink type={"danger"}       link={"/support"} title={"Get Technical Support"}          icon=<Icon.FaHeadset/> description={"description"}/>
 
                     </CardColumns>
-                    <Col></Col>
 
+                    <Col></Col>
                 </Row>
             </Container>
         </div>
