@@ -44,13 +44,14 @@ export default function Application(){
 
                         <CardLink type={"dark"}         link={"/checkout"} title={"Checkout Raspberry Pi"}          icon=<Icon.FaRaspberryPi/> description={"description"}/>
                         <CardLink type={"secondary"}    link={"/settings"} title={"System Settings"}                icon=<Icon.FaChalkboardTeacher/> description={"description"}/>
-                        <CardLink type={"secondary"}    link={"/rental/rented"} title={"View Checked Out Rentals"}       icon=<Icon.FaExchangeAlt/> description={"description"}/>
+                        <CardLink type={"secondary"}    link={"/rental/late"} title={"View Late Rentals"}              icon=<Icon.FaExclamationTriangle/> description={"description"}/>
 
                         <CardLink type={"secondary"}    link={"/checkin"} title={"Return Raspberry Pi Rental"}     icon=<Icon.FaBoxOpen/> description={"description"}/>
                         <CardLink type={"secondary"}    link={"/account"} title={"Add/Update Student"}            icon=<Icon.FaUsersCog/> description={"description"}/>
                         <CardLink type={"info"}         link={"/message"} title={"Contact Network Admin"}          icon=<Icon.FaEnvelopeOpenText/> description={"description"}/>
 
-                        <CardLink type={"secondary"}    link={"/rental/late"} title={"View Late Rentals"}              icon=<Icon.FaExclamationTriangle/> description={"description"}/>
+
+                        <CardLink type={"secondary"}    link={"/rental"} title={"View Rentals"}       icon=<Icon.FaRegListAlt/> description={"description"}/>
                         <CardLink type={"secondary"}    link={"/equipment/damaged"} title={"View Broken Equipment"}          icon=<Icon.FaTools/> description={"description"}/>
                         <CardLink type={"danger"}       link={"/support"} title={"Get Technical Support"}          icon=<Icon.FaHeadset/> description={"description"}/>
 

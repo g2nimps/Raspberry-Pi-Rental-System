@@ -6,7 +6,7 @@ import BasicNavbar from './Components/basic-navbar';
 import axios from 'axios';
 import Badge from 'react-bootstrap/Badge';
 
-export default class Equipment extends React.Component{
+export default class Rental extends React.Component{
     state = {
         table: []
     }
@@ -16,13 +16,13 @@ export default class Equipment extends React.Component{
             .then((response) => {
 
                 const table = response.data;
-                console.log(table);
+                //console.log(table);
                 this.setState({table});
 
             })
             .catch(function(err){
                 console.log(err);
-            })
+            });
 
     }
 
@@ -52,12 +52,12 @@ export default class Equipment extends React.Component{
                             { this.state.table.map(item => <tr key={item.id}>
                                 <td>{item.id}</td>
                                 <td>{item.check_in_date}</td>
-                                    <td>{item.checkin_by}</td>
-                                    <td>{item.checkout_by}</td>
-                                    <td>{item.checkout_date}</td>
-                                    <td><Badge variant="primary">{item.due_date}</Badge></td>
-                                    <td>{item.kit_barcode}</td>
-                                    <td>{item.student_panther_id}</td>
+                                <td>{item.checkin_by}</td>
+                                <td>{item.checkout_by}</td>
+                                <td>{item.checkout_date}</td>
+                                <td><Badge variant="primary">{item.due_date}</Badge></td>
+                                <td>{item.kit_barcode}</td>
+                                <td>{item.student_panther_id}</td>
                             </tr>)}
                             </tbody>
                         </Table>
