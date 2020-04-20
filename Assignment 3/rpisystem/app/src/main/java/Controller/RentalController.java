@@ -28,10 +28,6 @@ public class RentalController {
         return RentalRepo.findAll();
     }
 
-    // Get Late Rentals
-    @GetMapping("/rentals/late")
-    @Query(value = "SELECT r from Rental r where r. =:name ", nativeQuery = true)
-    publicList<Rentals> findByNameNative(@Param("name") String name);
 
     // Create a new Rental
     @PostMapping("/rentals")
