@@ -17,6 +17,7 @@ export default function BasicNavbar(){
         return(
             <Navbar className="navbar">
                 <Navbar.Brand className="brand" href="/" style={{color:"white", fontSize:"18px"}}>RPI Rental System</Navbar.Brand>
+                {/* <Navbar.Toggle aria-controls="basic-navbar-nav"></Navbar.Toggle> */}
                 <Nav className="nav">
 
                     <NavDropdown title={firstName} id="nav-dropdown" style={{color:"white", fontSize:"15px"}}>

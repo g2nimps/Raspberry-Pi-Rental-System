@@ -11,7 +11,6 @@ import Checkout from './Checkout';
 import Rental from './Rental';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import CardColumns from "react-bootstrap/CardColumns";
 
 function App(){
     return (
