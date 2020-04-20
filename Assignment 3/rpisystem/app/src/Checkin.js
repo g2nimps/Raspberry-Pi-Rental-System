@@ -5,6 +5,7 @@ import './Checkin.css';
 import BasicSideNav from './Components/basic-sidenav';
 import BasicNavbar from './Components/basic-navbar';
 import axios from 'axios';
+import Badge from "react-bootstrap/Badge";
 
 export default function Checkin(){
     const [pantherId, setPantherId] = useState("")
@@ -52,6 +53,27 @@ export default function Checkin(){
                                 <Form.Control value={kitBarcode} onChange={e => setKitBarcode(e.target.value)} placeholder="Kit Barcode"></Form.Control>
                             </Form.Group>
                         </Form.Row>
+                        <Form.Group controlId="formBasicCheckbox">
+                            <hr/>
+                            <div className={"disclaimer"}>
+                                <Badge variant="primary">Item Return Check</Badge>
+                                <ul>
+                                  <li>Raspberry PI 3 B+ with touchscreen</li>
+                                    <li>Keyboard</li>
+                                    <li>Power Cable</li>
+                                    <li>HDMI Cable</li>
+                                    <li>SD Reader</li>
+                                    <li>Plastic Container</li>
+                                </ul>
+
+                                <Form.Group>
+                                    <Form.Check
+                                        label="Returned Kit is Incomplete/RPI Broken"
+                                    />
+                                </Form.Group>
+
+                            </div>
+                        </Form.Group>
                         <Button onClick={checkin} variant="secondary">Checkin</Button>
                     </Form>
                 </Col>
