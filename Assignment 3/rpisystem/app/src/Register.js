@@ -113,7 +113,6 @@ export default function Register(){
                             </Form.Group>
                             <Link className="loginLink" to="/login">Already have an account? Click here to login</Link>
                         </Form>
-                        {/* <Link className="registerLink" to="/register">Don't have an account? Click here to register</Link> */}
                         <div className="text-center" style={{paddingTop:"10px"}}>
                             <Button onClick={register} style={{fontSize:"15px"}} variant="primary">Register</Button>
                         </div>

@@ -40,7 +40,7 @@ export default class Equipment extends React.Component{
                             <tr>
                                 <th>Model</th>
                                 <th>Status</th>
-                                <th>Barcode</th>
+                                <th>Kit Barcode</th>
                                 <th>Description</th>
                                 <th>Serial</th>
                             </tr>

@@ -67,7 +67,7 @@ export default function Checkin(){
                                 </ul>
 
                                 <Form.Group>
-                                    <Form.Check
+                                    <Form.Check name="rpi_broken"
                                         label="Returned Kit is Incomplete/RPI Broken"
                                     />
                                 </Form.Group>
