@@ -39,3 +39,5 @@
 .h1, h1 {
   font-size: 1.7rem !important;
 }
+
+.inventory.row {margin-right:0px;}

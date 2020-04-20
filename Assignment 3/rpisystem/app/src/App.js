@@ -43,11 +43,11 @@ export default function Application(){
                     <CardColumns className={"column_stack"}>
 
                         <CardLink type={"dark"}         link={"/checkout"} title={"Checkout Raspberry Pi"}          icon=<Icon.FaRaspberryPi/> description={"description"}/>
-                        <CardLink type={"secondary"}    link={"#"} title={"Manage Due Date"}                icon=<Icon.FaCalendarAlt/> description={"description"}/>
+                        <CardLink type={"secondary"}    link={"/settings"} title={"System Settings"}                icon=<Icon.FaChalkboardTeacher/> description={"description"}/>
                         <CardLink type={"secondary"}    link={"/rental/rented"} title={"View Checked Out Rentals"}       icon=<Icon.FaExchangeAlt/> description={"description"}/>
 
                         <CardLink type={"secondary"}    link={"/checkin"} title={"Return Raspberry Pi Rental"}     icon=<Icon.FaBoxOpen/> description={"description"}/>
-                        <CardLink type={"secondary"}    link={"/account"} title={"Add/Update Student"}            icon=<Icon.FaAddressCard/> description={"description"}/>
+                        <CardLink type={"secondary"}    link={"/account"} title={"Add/Update Student"}            icon=<Icon.FaUsersCog/> description={"description"}/>
                         <CardLink type={"info"}         link={"/message"} title={"Contact Network Admin"}          icon=<Icon.FaEnvelopeOpenText/> description={"description"}/>
 
                         <CardLink type={"secondary"}    link={"/rental/late"} title={"View Late Rentals"}              icon=<Icon.FaExclamationTriangle/> description={"description"}/>

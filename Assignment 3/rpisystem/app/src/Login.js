@@ -4,7 +4,7 @@ import { Link, useHistory } from "react-router-dom";
 import "./Login.css";
 import BasicNavbar from "./Components/basic-navbar";
 import axios from 'axios';
-import Notifications from './Components/ notifications';
+import Notifications from './Components/notifications';
 
 export default function Login(){
     const [email, setEmail] = useState("");

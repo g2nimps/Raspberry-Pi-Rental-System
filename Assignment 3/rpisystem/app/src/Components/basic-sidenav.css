@@ -3,7 +3,7 @@
     margin: 0;
     background-color:#443c3e;
     padding:30px;
-    min-height: calc(100vh - 60px);
+    min-height: calc(100vh - 55px);
 }
 
 .sidebar p {

@@ -3,13 +3,13 @@ import { Alert } from 'react-bootstrap';
 
 export default function Notifications(){
     const [show, setShow] = useState(true);
-    notificationServide: React.createRef();
+    React.createRef();
 
     // componentDidMount(){
     //     setShow(true);
     // }
 
-    function loginSuccessful(){
+    Notifications.loginSuccessful = function () {
         setShow(true);
         if(show){
             return(
