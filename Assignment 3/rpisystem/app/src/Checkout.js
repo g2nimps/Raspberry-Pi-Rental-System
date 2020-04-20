@@ -12,6 +12,7 @@ export default function Checkout(){
     const [pantherId, setPantherId] = useState("")
     const [kitBarcode, setKitBarcode] = useState("")
     const [equipment, setEquipment] = useState("")
+    const [correctBarcode, setCorrectBarcode] = useState("")
 
     useEffect(() => {
         axios.get('/api/equipment')
@@ -41,10 +42,12 @@ export default function Checkout(){
         if(localStorage.getItem("firstName") && verifyRental()){
             axios.post('/api/rentals', {
                 student_panther_id: pantherId,
-                kit_barcode: kitBarcode,
-                check_out_date: new Date(),
+                checkout_date: new Date(),
+                check_in_date: "",
                 due_date: new Date('May 25, 2020 11:59:00'),
-                check_out_by: localStorage.getItem("firstName"),
+                check_out_by: localStorage.getItem("pantherId"),
+                checkin_by: "",
+                kit_barcode: kitBarcode
             })
         }
         else{
@@ -53,17 +56,17 @@ export default function Checkout(){
     }
 
     function verifyRental(){
-        const correctBarcode = false
+        // const correctBarcode = false
         if(!parseInt(pantherId)){
             console.log("PantherId must be a string of numbers")
             return false
         }
         for(var i = 0; i < equipment.length; i++){
-            if(equipment[i].kit_barcode == equipment){
-                correctBarcode = true
+            if(equipment[i].kit_barcode == equipment.barcode){
+                setCorrectBarcode(true)
             }
         }
-        if(!correctBarcode){
+        if(correctBarcode == false){
             console.log("Equipment Barcode entered is incorrect")
             return false
         }

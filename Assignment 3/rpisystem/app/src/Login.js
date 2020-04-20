@@ -18,6 +18,7 @@ export default function Login(){
                     if(email === user.email && password === user.password){
                         localStorage.setItem('firstName', user.first_name)
                         localStorage.setItem('lastName', user.last_name)
+                        localStorage.setItem('pantherId', user.pantherId)
                         history.push("/");
                     }
                 })

@@ -9,6 +9,7 @@ export default function BasicNavbar(){
     function logout(){
         localStorage.removeItem("firstName");
         localStorage.removeItem("lastName");
+        localStorage.removeItem("pantherId");
         history.push('/login');
 
     }

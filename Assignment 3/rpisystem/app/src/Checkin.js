@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Row, Col, Container, Form, Button } from 'react-bootstrap';
 import './Equipment.css';
 import './Checkin.css';
@@ -10,7 +10,18 @@ import Badge from "react-bootstrap/Badge";
 export default function Checkin(){
     const [pantherId, setPantherId] = useState("")
     const [kitBarcode, setKitBarcode] = useState("")
-    // const [checkedOutBy, setCheckedOutBy] = useState("")
+    const [rentals, setRentals] = useState("")
+    const [canCheckin, setCanCheckin] = useState("")
+    const [rentalToCheckin, setRentalToCheckin] = useState("")
+
+    useEffect(() => {
+        axios.get('/api/rentals')
+            .then(res => {
+                setRentals(res.data)
+                // console.log(res.data)
+            })
+    })
+
     if(!localStorage.getItem('firstName')){
         return(
             <div>
@@ -20,12 +31,17 @@ export default function Checkin(){
         );
     }
     function checkin(){
-        if(localStorage.getItem("firstName")){
-            verifyReturn()
-            axios.put('/api/rentals', {
+        if(localStorage.getItem("firstName") && verifyReturn()){
+            axios.put('/api/rentals' + '/' + rentalToCheckin.id, {
+                id: rentalToCheckin.id,
                 student_panther_id: pantherId,
                 kit_barcode: kitBarcode,
-                check_in_by: localStorage.getItem("firstName"),
+                check_in_by: localStorage.getItem("pantherId"),
+                checkout_by: rentalToCheckin.checkout_by,
+                checkoutDate: rentalToCheckin.checkoutDate,
+                checkInDate: new Date(),
+                rentalId: rentalToCheckin.rentalId,
+                due_date: rentalToCheckin.due_date
             })
         }
         else{
@@ -33,7 +49,20 @@ export default function Checkin(){
         }
     }
     function verifyReturn(){
-
+        // setCanCheckin(false)
+        // console.log(pantherId)
+        // console.log(kitBarcode)
+        for(var i = 0; i < rentals.length; i++){
+            console.log(rentals[i])
+            if(rentals[i].student_panther_id == parseInt(pantherId) && rentals[i].kit_barcode == kitBarcode){
+                // console.log()
+                // setCanCheckin(true)
+                setRentalToCheckin(rentals[i])
+                return true
+            }
+        }
+        // console.log(canCheckin)
+        return false
     }
     return(
         <div>
