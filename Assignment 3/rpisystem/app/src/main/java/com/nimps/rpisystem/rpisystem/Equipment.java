@@ -9,9 +9,9 @@ public class Equipment extends RpisystemApplication {
     public String item_model;
     public String description;
     public String serial;
+    public String condition;
     @Column(unique=true)
     public String barcode;
-    public enum device_condition {GOOD, DAMAGED, LOST};
     public long getId() {
         return id;
     }
@@ -51,5 +51,8 @@ public class Equipment extends RpisystemApplication {
     public void setBarcode(String barcode) {
         this.barcode = barcode;
     }
+
+    public String getCondition(){return condition;}
+    public void setCondition(String condition) {this.condition = condition;}
 
 }

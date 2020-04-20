@@ -1,22 +1,23 @@
 import React from 'react';
 import {Navbar, Nav, NavDropdown} from 'react-bootstrap'
 import './basic-navbar.css'
-import { useHistory } from 'react-router-dom';
+import { useHistory, Redirect } from 'react-router-dom';
 
 export default function BasicNavbar(){
     const history = useHistory();
 
     function logout(){
         localStorage.removeItem("firstName");
-        localStorage.removeItem("lastName")
-        history.push("/");
+        localStorage.removeItem("lastName");
+        history.push('/login');
+
     }
 
     if(localStorage.getItem('firstName')){
         const firstName = localStorage.getItem('firstName');
         return(
             <Navbar className="navbar">
-                <Navbar.Brand className="brand" href="/" style={{color:"white", fontSize:"18px"}}>RPI Rental System</Navbar.Brand>
+                <Navbar.Brand className="brand" href="/" style={{color:"white", fontSize:"20px"}}>RPI Rental System</Navbar.Brand>
                 <Nav className="nav">
 
                     <NavDropdown title={firstName} id="nav-dropdown" style={{color:"white", fontSize:"15px"}}>
@@ -34,7 +35,7 @@ export default function BasicNavbar(){
     }
     return(
         <Navbar className="navbar">
-            <Navbar.Brand className="brand" href="/" style={{color:"white", fontSize:"20px"}}>RpiSystem</Navbar.Brand>
+            <Navbar.Brand className="brand" href="/login" style={{color:"white", fontSize:"20px"}}>RPI Rental System</Navbar.Brand>
             <Nav className="justify-content-end">
                 <Nav.Item>
                     <Nav.Link href="/register" style={{color:"white", fontSize:"15px"}}>Register</Nav.Link>

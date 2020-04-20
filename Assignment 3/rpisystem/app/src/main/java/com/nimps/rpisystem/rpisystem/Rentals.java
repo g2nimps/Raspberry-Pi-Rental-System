@@ -22,12 +22,14 @@ public class Rentals extends RpisystemApplication {
     @CreatedDate
     public Date checkout_date;
 
+    @Column(nullable = true)
     @Temporal(TemporalType.DATE)
     public Date check_in_date;
 
     @Temporal(TemporalType.DATE)
     public Date due_date;
     public int checkout_by;
+    @Column(nullable = true)
     public int checkin_by;
     public int kit_barcode;
 

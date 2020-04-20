@@ -51,6 +51,7 @@ public class EquipmentController {
         equipment.setDescription(equipmentDetails.getDescription());
         equipment.setItem_model(equipmentDetails.getItem_model());
         equipment.setSerial(equipmentDetails.getSerial());
+        equipment.setSerial(equipmentDetails.getCondition());
 //        user.setPantherId(userDetails.getPantherId());
 
         Equipment updatedEquipment = EquipmentRepo.save(equipment);
