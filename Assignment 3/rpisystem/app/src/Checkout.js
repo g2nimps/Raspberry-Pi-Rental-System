@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Row, Col, Container, Form, Button } from 'react-bootstrap';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import './Equipment.css';
@@ -11,7 +11,15 @@ import axios from 'axios';
 export default function Checkout(){
     const [pantherId, setPantherId] = useState("")
     const [kitBarcode, setKitBarcode] = useState("")
-    // const [checkedOutBy, setCheckedOutBy] = useState("")
+    const [equipment, setEquipment] = useState("")
+
+    useEffect(() => {
+        axios.get('/api/equipment')
+            .then(res => {
+                setEquipment(res.data)
+            })
+    })
+
     if(!localStorage.getItem('firstName')){
         return(
             <div>
@@ -20,10 +28,17 @@ export default function Checkout(){
             </div>
         );
     }
+
     function checkout(){
         /* this page would create a user, and then */
-        if(localStorage.getItem("firstName")){
-            verifyRental()
+//         "student_panther_id": "12345666",
+//         "checkout_date": "2020-04-15",
+//         "check_in_date": "",
+//         "due_date": "2020-05-22",
+//         "checkout_by": "0984676",
+//         "checkin_by": "",
+//         "kit_barcode": "812312"
+        if(localStorage.getItem("firstName") && verifyRental()){
             axios.post('/api/rentals', {
                 student_panther_id: pantherId,
                 kit_barcode: kitBarcode,
@@ -38,7 +53,21 @@ export default function Checkout(){
     }
 
     function verifyRental(){
-
+        const correctBarcode = false
+        if(!parseInt(pantherId)){
+            console.log("PantherId must be a string of numbers")
+            return false
+        }
+        for(var i = 0; i < equipment.length; i++){
+            if(equipment[i].kit_barcode == equipment){
+                correctBarcode = true
+            }
+        }
+        if(!correctBarcode){
+            console.log("Equipment Barcode entered is incorrect")
+            return false
+        }
+        return true
     }
 
     return(
