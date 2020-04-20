@@ -9,7 +9,7 @@ export default function Notifications(){
     //     setShow(true);
     // }
 
-    Notifications.loginSuccessful = function () {
+    function loginSuccessful(){
         setShow(true);
         if(show){
             return(

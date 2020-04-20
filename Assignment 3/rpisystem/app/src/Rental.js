@@ -12,7 +12,7 @@ export default class Equipment extends React.Component{
     }
     componentDidMount() {
         const table = [];
-        axios.get('/api/rental')
+        axios.get('/api/rentals')
             .then((response) => {
 
                 const table = response.data;
@@ -34,8 +34,8 @@ export default class Equipment extends React.Component{
                 <Row className="inventory">
                     <BasicSideNav/>
                     <Col xs={9} className="column equipColumn">
-                        <h1>Inventory | Equipment Status</h1>
-                        <Table striped bordered hover responsive>
+                        <h1>Rentals | Checked Out Raspberry Pis</h1>
+                        <Table striped bordered hover responsive variant="dark">
                             <thead>
                             <tr>
                                 <th>#</th>
@@ -50,19 +50,14 @@ export default class Equipment extends React.Component{
                             </thead>
                             <tbody>
                             { this.state.table.map(item => <tr key={item.id}>
-                                <td>{item.item_model}</td>
-                                <td><Badge variant={item.condition.toLowerCase() === 'good' ? 'secondary' : 'danger'}>{item.condition}</Badge></td>
-                                <td>{item.barcode}</td>
-                                <td>{item.description}</td>
-                                <td>{item.serial}</td>
-                                    <th>#</th>
-                                    <th>Checkin Date</th>
-                                    <th>Checked In By</th>
-                                    <th>Checked Out By</th>
-                                    <th>Checkout Date</th>
-                                    <th>Due Date</th>
-                                    <th>Kit Barcode</th>
-                                    <th>Panther ID</th>
+                                <td>{item.id}</td>
+                                <td>{item.check_in_date}</td>
+                                    <td>{item.checkin_by}</td>
+                                    <td>{item.checkout_by}</td>
+                                    <td>{item.checkout_date}</td>
+                                    <td><Badge variant="primary">{item.due_date}</Badge></td>
+                                    <td>{item.kit_barcode}</td>
+                                    <td>{item.student_panther_id}</td>
                             </tr>)}
                             </tbody>
                         </Table>
