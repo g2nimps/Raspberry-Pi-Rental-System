@@ -85,7 +85,7 @@ export default function Register(){
                 <Row>
                     <Col xs={2} className="left-sidebar"></Col>
                     <Col className="main">
-                        <h1>Register</h1>
+                        <h1>Register Account</h1>
                         <Form onSubmit={register} controlid="form">
                             <Form.Group>
                                 <Form.Row>
@@ -114,7 +114,7 @@ export default function Register(){
                             <Link className="loginLink" to="/login">Already have an account? Click here to login</Link>
                         </Form>
                         <div className="text-center" style={{paddingTop:"10px"}}>
-                            <Button onClick={register} style={{fontSize:"15px"}} variant="primary">Register</Button>
+                            <Button onClick={register} style={{fontSize:"15px"}} variant="dark">Register</Button>
                         </div>
                     </Col>
                     <Col xs={2} className="right-sidebar"></Col>

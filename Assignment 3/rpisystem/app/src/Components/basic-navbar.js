@@ -25,10 +25,10 @@ export default function BasicNavbar(){
                         <NavDropdown.Item onClick={logout}>Logout</NavDropdown.Item>
                     </NavDropdown>
                     <Nav.Item>
-                        <Nav.Link href="/equipment" style={{color:"white", fontSize:"15px"}}>Equipment</Nav.Link>
+                        <Nav.Link href="/rental" style={{color:"white", fontSize:"15px"}}>Rentals</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Nav.Link href="/rental" style={{color:"white", fontSize:"15px"}}>Rentals</Nav.Link>
+                        <Nav.Link href="/equipment" style={{color:"white", fontSize:"15px"}}>Equipment List</Nav.Link>
                     </Nav.Item>
                 </Nav>
             </Navbar>
@@ -39,13 +39,10 @@ export default function BasicNavbar(){
             <Navbar.Brand className="brand" href="/login" style={{color:"white", fontSize:"20px"}}>RPI Rental System</Navbar.Brand>
             <Nav className="justify-content-end">
                 <Nav.Item>
-                    <Nav.Link href="/register" style={{color:"white", fontSize:"15px"}}>Register</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
                     <Nav.Link href="/login" style={{color:"white", fontSize:"15px"}}>Login</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                    <Nav.Link href="/equipment" style={{color:"white", fontSize:"15px"}}>Equipment</Nav.Link>
+                    <Nav.Link href="/register" style={{color:"white", fontSize:"15px"}}>Register</Nav.Link>
                 </Nav.Item>
             </Nav>
         </Navbar>

@@ -22,4 +22,4 @@ nav.navbar-light {border-radius:0px;}
   position: relative;
   right: 100px;
 }
-
+a.brand.navbar-brand {position:relative;top:-7px;}

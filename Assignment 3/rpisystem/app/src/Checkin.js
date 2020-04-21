@@ -6,6 +6,9 @@ import BasicSideNav from './Components/basic-sidenav';
 import BasicNavbar from './Components/basic-navbar';
 import axios from 'axios';
 import Badge from "react-bootstrap/Badge";
+import { Link } from 'react-router-dom';
+import * as Icon from 'react-icons/fa';
+import Jumbotron from "react-bootstrap/Jumbotron";
 
 export default function Checkin(){
     const [pantherId, setPantherId] = useState("")
@@ -26,10 +29,31 @@ export default function Checkin(){
         return(
             <div>
                 <BasicNavbar />
-                <h1>Please log in to use Equipment Page.</h1>
+                <Container className={"access_card"}>
+                    <Row>
+                        <Col>
+                            <Jumbotron>
+                                <Container>
+                                    <h1>Access Denied</h1>
+                                    <Icon.FaExclamationTriangle/>
+                                    <p>
+                                        You do not have permission to view this page.
+                                        <br/>Please log in to gain access.
+                                    </p>
+                                    <p>
+                                        <Link to="/login" >
+                                            <Button variant="primary">Login To Portal</Button>
+                                        </Link>
+                                    </p>
+                                </Container>
+                            </Jumbotron>
+                        </Col>
+                    </Row>
+                </Container>
             </div>
         );
     }
+
     function checkin(){
         if(localStorage.getItem("firstName") && verifyReturn()){
             axios.put('/api/rentals' + '/' + rentalToCheckin.id, {

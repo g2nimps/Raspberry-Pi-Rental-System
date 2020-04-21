@@ -4,11 +4,12 @@ import './index.css';
 import Application from './App';
 import Login from './Login';
 import Register from './Register';
-import Account from './Register';
+import Account from './Account';
 import Equipment from './Equipment';
 import Checkin from './Checkin';
 import Checkout from './Checkout';
 import Rental from './Rental';
+import Settings from './Settings';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
@@ -31,7 +32,11 @@ function App(){
                 <Route path="/login" exact>
                     <Login/>
                 </Route>
-                
+
+                <Route path="/settings" exact>
+                    <Settings/>
+                </Route>
+
                 <Route path="/register" exact>
                     <Register />
                 </Route>
