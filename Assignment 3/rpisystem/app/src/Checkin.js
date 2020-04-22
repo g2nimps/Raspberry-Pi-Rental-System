@@ -14,14 +14,13 @@ export default function Checkin(){
     const [pantherId, setPantherId] = useState("")
     const [kitBarcode, setKitBarcode] = useState("")
     const [rentals, setRentals] = useState("")
-    const [canCheckin, setCanCheckin] = useState("")
-    const [rentalToCheckin, setRentalToCheckin] = useState("")
+    // const [rentalToCheckin, setRentalToCheckin] = useState("")
+    var rentalCheckIn = {}
 
     useEffect(() => {
         axios.get('/api/rentals')
             .then(res => {
                 setRentals(res.data)
-                // console.log(res.data)
             })
     })
 
@@ -56,36 +55,33 @@ export default function Checkin(){
 
     function checkin(){
         if(localStorage.getItem("firstName") && verifyReturn()){
-            axios.put('/api/rentals' + '/' + rentalToCheckin.id, {
-                id: rentalToCheckin.id,
+            axios.put(`localhost:8080/api/rentals/${rentalCheckIn.id}`, {
+                id: rentalCheckIn.id,
                 student_panther_id: pantherId,
                 kit_barcode: kitBarcode,
                 check_in_by: localStorage.getItem("pantherId"),
-                checkout_by: rentalToCheckin.checkout_by,
-                checkoutDate: rentalToCheckin.checkoutDate,
+                checkout_by: rentalCheckIn.checkout_by,
+                checkoutDate: rentalCheckIn.checkoutDate,
                 checkInDate: new Date(),
-                rentalId: rentalToCheckin.rentalId,
-                due_date: rentalToCheckin.due_date
+                rentalId: rentalCheckIn.rentalId,
+                due_date: rentalCheckIn.due_date
             })
+            console.log('success')
         }
         else{
             console.log("Rental info is not correct")
         }
     }
     function verifyReturn(){
-        // setCanCheckin(false)
-        // console.log(pantherId)
-        // console.log(kitBarcode)
         for(var i = 0; i < rentals.length; i++){
             console.log(rentals[i])
-            if(rentals[i].student_panther_id == parseInt(pantherId) && rentals[i].kit_barcode == kitBarcode){
-                // console.log()
-                // setCanCheckin(true)
-                setRentalToCheckin(rentals[i])
+            if(rentals[i].student_panther_id === parseInt(pantherId) && rentals[i].kit_barcode === kitBarcode){
+                // setRentalToCheckin(rentals[i])
+                rentalCheckIn = rentals[i]
+                console.log(rentalCheckIn)
                 return true
             }
         }
-        // console.log(canCheckin)
         return false
     }
     return(
