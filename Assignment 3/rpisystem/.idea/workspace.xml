@@ -3,15 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="3335c08f-5a81-4107-9851-a1256b5e7c67" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/Account.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/Equipment.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Equipment.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Register.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/Controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/Controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/nimps/rpisystem/rpisystem/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/nimps/rpisystem/rpisystem/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/target/classes/com/nimps/rpisystem/rpisystem/Controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/target/classes/com/nimps/rpisystem/rpisystem/Controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/target/classes/com/nimps/rpisystem/rpisystem/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/target/classes/com/nimps/rpisystem/rpisystem/User.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +88,7 @@
       <workItem from="1586466021070" duration="27000" />
       <workItem from="1587006363434" duration="47804000" />
       <workItem from="1587310708832" duration="33670000" />
-      <workItem from="1587492643130" duration="21134000" />
+      <workItem from="1587492643130" duration="23595000" />
     </task>
     <servers />
   </component>

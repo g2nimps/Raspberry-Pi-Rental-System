@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Form, Container, Row, Col, Button } from "react-bootstrap";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import "./Register.css";
 import BasicNavbar from "./Components/basic-navbar";
 import axios from 'axios';
 import Alert from 'react-bootstrap/Alert';
-import CardColumns from "react-bootstrap/CardColumns";
 
 export default function Register(){
     const[first_name, setFirst_name] = useState("");
@@ -14,9 +13,10 @@ export default function Register(){
     const[password, setPassword] = useState("");
     const[pantherId, setPantherId] = useState("");
     const[users, setUsers] = useState("");
-    const[role] = useState("Admin");
     const[alert_message, setalert_message] = useState("");
     const history = useHistory();
+    const location = useLocation();
+
 
     // will get users on initialization of page
     useEffect(() => {
@@ -81,12 +81,18 @@ export default function Register(){
             setalert_message("PantherId must be a string of numbers");
             return false
         }
-        setalert_message("Registration Successful");
         return true
     }
 
     function register(){
+
         if(validateInfo()){
+            // Add User or Admin based on page route
+            let role = "User";
+            if(location.pathname !== "/account") {
+                role = "Admin";
+            }
+            console.log(role);
             axios.post('/api/users',{
                 first_name: first_name,
                 last_name: last_name,
@@ -97,7 +103,12 @@ export default function Register(){
             })
             .then(function(response){
                 console.log(response);
-                history.push("/login");
+                setalert_message("Registration Successful");
+                if(location.pathname == "/account") {
+                    history.push("/");
+                } else {
+                    history.push("/login");
+                }
             })
             .catch(function(err){
                console.log(err);
@@ -115,7 +126,7 @@ export default function Register(){
                 <Row>
                     <Col xs={2} className="left-sidebar"></Col>
                     <Col className="main">
-                        <h1>Register Account</h1>
+                        <h1>{location.pathname == "/account" ? "Add New Student Account" : "Register Account"}</h1>
 
                         <Form onSubmit={register} controlid="form">
                             <AlertDismissible variant={alert_message !== "Registration Successful" ? 'danger' : 'success'} message={alert_message}/>
@@ -147,7 +158,7 @@ export default function Register(){
                             <Link className="loginLink" to="/login">Already have an account? Click here to login</Link>
                         </Form>
                         <div className="text-center" style={{paddingTop:"10px"}}>
-                            <Button onClick={register} style={{fontSize:"15px"}} variant="dark">Register</Button>
+                            <Button onClick={register} style={{fontSize:"15px"}} variant="dark">{location.pathname == "/account" ? "Register New Student" : "Register"}</Button>
                         </div>
                     </Col>
                     <Col xs={2} className="right-sidebar"></Col>
