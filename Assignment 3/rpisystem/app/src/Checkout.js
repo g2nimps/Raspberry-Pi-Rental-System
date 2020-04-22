@@ -84,11 +84,11 @@ export default function Checkout(){
             return false
         }
         for(var i = 0; i < equipment.length; i++){
-            if(equipment[i].kit_barcode == equipment.barcode){
+            if(equipment[i].kit_barcode === equipment.barcode){
                 setCorrectBarcode(true)
             }
         }
-        if(correctBarcode == false){
+        if(correctBarcode === false){
             console.log("Equipment Barcode entered is incorrect")
             return false
         }
