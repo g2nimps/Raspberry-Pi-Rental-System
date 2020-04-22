@@ -13,6 +13,8 @@ export default class Rental extends React.Component{
     state = {
         table: []
     }
+
+
     componentDidMount() {
         const table = [];
         axios.get('/api/rentals')
