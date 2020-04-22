@@ -19,41 +19,13 @@ class Rental extends React.Component{
         this.props.location.pathname = history.location.pathname;
         console.log(this.props.location.pathname);
     }
-
-    componentDidMount() {
-        axios.get('/api/rentals')
-            .then((response) => {
-
-                let table = response.data;
-                console.log(table);
-                if (this.props.location.pathname == "/rental-late") {
-                    const lateRentals = [];
-                    let today = new Date();
-                    for(let i = 0; i < response.data.length; i++){
-                        let due_date = new Date(response.data[i].due_date);
-                        let checkin = new Date(response.data[i].check_in_date);
-                        if (
-                            ((due_date.getTime() < today.getTime()) && (response.data[i].check_in_date == null)) ||
-                            (checkin.getTime() > due_date.getTime())
-                        ){
-                            //Rental is late if  (Check IN Date > Due Date) or (Check IN Date = NULL && Due_date < Today)
-                            lateRentals.push(response.data[i]);
-                        }
-                    }
-                    table = lateRentals;
-                }
-
-                //console.log(table);
-                this.setState({table});
-
-            })
-            .catch(function(err){
-                console.log(err);
-            });
-
-    }
-
     componentDidUpdate() {
+        this.fetchData();
+    }
+    componentDidMount() {
+        this.fetchData();
+    }
+    fetchData() {
         axios.get('/api/rentals')
             .then((response) => {
 
@@ -85,6 +57,7 @@ class Rental extends React.Component{
             });
 
     }
+
 
     render()
     {

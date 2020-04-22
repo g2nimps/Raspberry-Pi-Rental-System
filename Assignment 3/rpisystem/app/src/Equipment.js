@@ -5,33 +5,53 @@ import BasicSideNav from './Components/basic-sidenav';
 import BasicNavbar from './Components/basic-navbar';
 import axios from 'axios';
 import Badge from 'react-bootstrap/Badge';
-import { Link } from 'react-router-dom';
+import { Link, useHistory, withRouter} from 'react-router-dom';
 import * as Icon from 'react-icons/fa';
 import Jumbotron from "react-bootstrap/Jumbotron";
 
 
-export default class Equipment extends React.Component{
-
-
+class Equipment extends React.Component{
     state = {
         table: []
     }
+    location = useHistory.bind(this);
+    componentWillReceiveProps(nextProps ) {
+        const { location, history, match } = this.props;
+        this.props.location.pathname = history.location.pathname;
+        console.log(this.props.location.pathname);
+    }
+    componentDidUpdate() {
+        this.fetchData();
+    }
     componentDidMount() {
-        const table = [];
+        this.fetchData();
+    }
+
+    fetchData() {
         axios.get('/api/equipment')
             .then((response) => {
 
-                const table = response.data;
+                let table = response.data;
                 console.log(table);
+
+                if (this.props.location.pathname == "/equipment-damaged") {
+                    const kitDamaged = [];
+                    for(let i = 0; i < response.data.length; i++){
+                        if (response.data[i].condition.toLowerCase() == "damaged"){
+                            //If equipment is late add to list
+                            kitDamaged.push(response.data[i]);
+                        }
+                    }
+                    table = kitDamaged;
+                }
+
                 this.setState({table});
 
             })
             .catch(function(err){
                 console.log(err);
             })
-
     }
-
     render()
     {
         if(!localStorage.getItem('firstName')){
@@ -68,7 +88,7 @@ export default class Equipment extends React.Component{
                     <Row className="inventory">
                         <BasicSideNav/>
                         <Col xs={9} className="column equipColumn">
-                            <h1>Inventory | Equipment Status</h1>
+                            <h1>Inventory | {this.props.location.pathname == "/equipment-damaged" ? 'Broken Raspberry Pi Equipment' : 'All Raspberry Pi Equipment'}</h1>
                             <Table striped bordered hover responsive className={"light_table"}>
                                 <thead>
                                 <tr>
@@ -98,3 +118,5 @@ export default class Equipment extends React.Component{
         }
     }
 }
+
+export default withRouter(Equipment);

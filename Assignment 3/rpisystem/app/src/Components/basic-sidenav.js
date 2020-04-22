@@ -11,7 +11,8 @@ class BasicSideNav extends Component{
                 <h1>Equipment Inventory</h1>
                 <p>Due Date: <span>06/01/2020</span></p>
                 <hr></hr>
-                <Link to="/equipment" className="link">Equipment Status</Link>
+                <Link to="/equipment" className="link">View All Equipment</Link>
+                <Link to="/equipment-damaged" className="link">View Broken Equipment</Link>
                 <Link to="/checkout" className="link">Checkout Raspberry Pi</Link>
                 <Link to="/checkin" className="link">Return Raspberry Pi Rental</Link>
                 <Link to="/rental" className="link">View All Rentals</Link>

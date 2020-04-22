@@ -52,7 +52,7 @@ export default function Application(){
 
 
                         <CardLink type={"secondary"}    link={"/rental"} title={"View Rentals"}       icon=<Icon.FaRegListAlt/> description={"description"}/>
-                        <CardLink type={"secondary"}    link={"/equipment/damaged"} title={"View Broken Equipment"}          icon=<Icon.FaTools/> description={"description"}/>
+                        <CardLink type={"secondary"}    link={"/equipment-damaged"} title={"View Broken Equipment"}          icon=<Icon.FaTools/> description={"description"}/>
                         <CardLink type={"danger"}       link={"/support"} title={"Get Technical Support"}          icon=<Icon.FaHeadset/> description={"description"}/>
 
                     </CardColumns>
