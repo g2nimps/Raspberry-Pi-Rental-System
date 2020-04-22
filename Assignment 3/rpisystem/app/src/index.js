@@ -24,7 +24,11 @@ function App(){
                     <Equipment />
                 </Route>
 
-                <Route path="/rental/:pathParam1?" exact>
+                <Route path="/rental" exact>
+                    <Rental />
+                </Route>
+
+                <Route path="/rental-late" exact>
                     <Rental />
                 </Route>
 

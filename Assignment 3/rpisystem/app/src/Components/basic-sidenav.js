@@ -14,8 +14,8 @@ class BasicSideNav extends Component{
                 <Link to="/equipment" className="link">Equipment Status</Link>
                 <Link to="/checkout" className="link">Checkout Raspberry Pi</Link>
                 <Link to="/checkin" className="link">Return Raspberry Pi Rental</Link>
-                <Link to="/rental/rented" className="link">View Checked Out Rentals</Link>
-                <Link to="/rental/late" className="link">View Late Rentals</Link>
+                <Link to="/rental" className="link">View All Rentals</Link>
+                <Link to="/rental-late" className="link">View Late Rentals</Link>
                 <Link to="/message" className="link">Contact Network Admin</Link>
                 <Link to="/support" className="link">Get Technical Support</Link>
             </Col>
