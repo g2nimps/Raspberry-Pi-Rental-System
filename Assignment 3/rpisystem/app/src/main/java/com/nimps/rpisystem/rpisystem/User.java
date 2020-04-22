@@ -20,6 +20,8 @@ public class User {
     public String first_name;
     public String last_name;
 
+    public String role;
+
     @Column(unique=true)
     public String email;
 
@@ -30,12 +32,13 @@ public class User {
 
     public User(){ }
 
-    public User(long id, String first_name, String last_name, String password, int pantherId){
+    public User(long id, String first_name, String last_name, String password, int pantherId, String role){
         this.id = id;
         this.first_name = first_name;
         this.last_name = last_name;
         this.password = password;
         this.pantherId = pantherId;
+        this.role = role;
     }
 
     public void login() {
@@ -84,6 +87,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public int getPantherId() {

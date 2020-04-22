@@ -5,32 +5,74 @@ import "./Login.css";
 import BasicNavbar from "./Components/basic-navbar";
 import axios from 'axios';
 import Notifications from './Components/notifications';
+import Alert from "react-bootstrap/Alert";
 
 export default function Login(){
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const[alert_message, setalert_message] = useState("");
     const history = useHistory();
 
     function login(){
-        axios.get('/api/users')
-            .then(function(response){
-                response.data.forEach(user => {
-                    if(email === user.email && password === user.password){
-                        localStorage.setItem('firstName', user.first_name)
-                        localStorage.setItem('lastName', user.last_name)
-                        localStorage.setItem('pantherId', user.pantherId)
-                        history.push("/");
-                    }
+
+        if(verifyCredentials()) {
+            axios.get('/api/users')
+                .then(function (response) {
+                    response.data.forEach(user => {
+                        if (email === user.email && password === user.password) {
+                            localStorage.setItem('firstName', user.first_name)
+                            localStorage.setItem('lastName', user.last_name)
+                            localStorage.setItem('pantherId', user.pantherId)
+                            localStorage.setItem('role', user.role);
+                            setalert_message("Login Successful! Redirecting...");
+                            history.push("/");
+                        } else {
+                            setalert_message("The email / password you entered is incorrect.");
+                        }
+                    })
+                    //Notifications.loginSuccessful();
                 })
-                Notifications.loginSuccessful();
-            })
-            .catch(function(err){
-                console.log(err)
-            })
+                .catch(function (err) {
+                    console.log(err);
+                    setalert_message("Issue with Login");
+                })
+        } 
     }
+    function AlertDismissible(props) {
+        if (props.message.length > 0) {
+            return (
+                <>
+                    <Alert variant={props.variant}>
+                        {props.message}
+                    </Alert>
+                </>
+            );
+        } else {
+            return (
+                <>
+                </>
+            );
 
+        }
+
+    }
     function verifyCredentials(){
-
+        if(!email.includes('@')){
+            console.log("Invalid Email");
+            setalert_message("Invalid Email");
+            return false;
+        }
+        if(email === ""){
+            console.log("Email cannot be empty");
+            setalert_message("Email cannot be empty");
+            return false;
+        }
+        if(password === ""){
+            console.log("Password cannot be empty");
+            setalert_message("Password cannot be empty");
+            return false;
+        }
+        return true;
     }
 
     return (
@@ -42,6 +84,8 @@ export default function Login(){
                     <Col className="main">
                         <h1>Login</h1>
                         <Form onSubmit={login}>
+                            <AlertDismissible variant={alert_message !== "Login Successful! Redirecting..." ? 'danger' : 'success'} message={alert_message}/>
+
                             <Form.Group controlId="formGroupEmail">
                                 <Form.Label style={{fontSize:"20px"}}>Email address</Form.Label>
                                 {/* <Form.Control ref={this.email} onChange={() => this.handleChangeEmail()} style={{fontSize:"15px"}} autoFocus type="email" placeholder="Enter email" /> */}

@@ -54,6 +54,7 @@ public class UserController {
         user.setEmail(userDetails.getEmail());
         user.setPassword(userDetails.getPassword());
         user.setPantherId(userDetails.getPantherId());
+        user.setRole(userDetails.getRole());
 
         User updatedUser = UserRepo.save(user);
         return updatedUser;

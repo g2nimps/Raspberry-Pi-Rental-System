@@ -34,7 +34,6 @@ export default class Equipment extends React.Component{
 
     render()
     {
-
         if(!localStorage.getItem('firstName')){
             return(
                 <div>

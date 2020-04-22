@@ -4,6 +4,8 @@ import { Link, useHistory } from "react-router-dom";
 import "./Register.css";
 import BasicNavbar from "./Components/basic-navbar";
 import axios from 'axios';
+import Alert from 'react-bootstrap/Alert';
+import CardColumns from "react-bootstrap/CardColumns";
 
 export default function Register(){
     const[first_name, setFirst_name] = useState("");
@@ -12,6 +14,8 @@ export default function Register(){
     const[password, setPassword] = useState("");
     const[pantherId, setPantherId] = useState("");
     const[users, setUsers] = useState("");
+    const[role] = useState("Admin");
+    const[alert_message, setalert_message] = useState("");
     const history = useHistory();
 
     // will get users on initialization of page
@@ -21,38 +25,63 @@ export default function Register(){
                 setUsers(res.data)
             })
     });
+    function AlertDismissible(props) {
+        if (props.message.length > 0) {
+        return (
+            <>
+                <Alert variant={props.variant}>
+                    {props.message}
+                </Alert>
+            </>
+        );
+        } else {
+            return (
+                <>
+                </>
+            );
+
+        }
+
+    }
 
     function validateInfo(){
-        console.log(users)
+        //console.log(users);
         if(first_name === ""){
-            console.log("First name cannot be empty")
+            console.log("First name cannot be empty");
+            setalert_message("First name cannot be empty");
             return false
         }
         if(last_name === ""){
-            console.log("Last name cannot be empty")
+            console.log("Last name cannot be empty");
+            setalert_message("Last name cannot be empty");
             return false
         }
         if(!email.includes('@')){
-            console.log("Invalid Email")
+            console.log("Invalid Email");
+            setalert_message("Invalid Email");
             return false
         }
 
         for(var i = 0; i < users.length; i++){
             if(users[i].email === email){
-                console.log("Email already in use")
+                console.log("Email already in use");
+                setalert_message("Email already in use");
                 return false
             }
         }
         
         if(password.length < 8){
-            console.log(password.length)
-            console.log("Password does not meet length requirement")
+            console.log(password.length);
+            console.log("Password does not meet length requirement");
+            setalert_message("Password does not meet length requirement");
             return false
         }
         if(!parseInt(pantherId)){
-            console.log("PantherId must be a string of numbers")
+            console.log("PantherId must be a string of numbers");
+            setalert_message("PantherId must be a string of numbers");
             return false
         }
+        setalert_message("Registration Successful");
         return true
     }
 
@@ -63,14 +92,15 @@ export default function Register(){
                 last_name: last_name,
                 email: email,
                 password: password,
-                pantherId: pantherId
+                pantherId: pantherId,
+                role: role
             })
             .then(function(response){
-                console.log(response)
-                history.push("/login")
+                console.log(response);
+                history.push("/login");
             })
             .catch(function(err){
-               console.log(err)
+               console.log(err);
             })
         }
         else{
@@ -86,7 +116,10 @@ export default function Register(){
                     <Col xs={2} className="left-sidebar"></Col>
                     <Col className="main">
                         <h1>Register Account</h1>
+
                         <Form onSubmit={register} controlid="form">
+                            <AlertDismissible variant={alert_message !== "Registration Successful" ? 'danger' : 'success'} message={alert_message}/>
+
                             <Form.Group>
                                 <Form.Row>
                                     <Col>
