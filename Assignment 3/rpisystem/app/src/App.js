@@ -47,7 +47,7 @@ export default function Application(){
                         <CardLink type={"secondary"}    link={"/rental/late"} title={"View Late Rentals"}              icon=<Icon.FaExclamationTriangle/> description={"description"}/>
 
                         <CardLink type={"secondary"}    link={"/checkin"} title={"Return Raspberry Pi Rental"}     icon=<Icon.FaBoxOpen/> description={"description"}/>
-                        <CardLink type={"secondary"}    link={"/account"} title={"Add/Update Student"}            icon=<Icon.FaUsersCog/> description={"description"}/>
+                        <CardLink type={"secondary"}    link={"/account"} title={"Add New Student"}            icon=<Icon.FaUsersCog/> description={"description"}/>
                         <CardLink type={"info"}         link={"/message"} title={"Contact Network Admin"}          icon=<Icon.FaEnvelopeOpenText/> description={"description"}/>
 
 

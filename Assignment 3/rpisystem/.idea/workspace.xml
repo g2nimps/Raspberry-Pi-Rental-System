@@ -3,22 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="3335c08f-5a81-4107-9851-a1256b5e7c67" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/Checkin.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Checkin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/Checkout.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Checkout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/Components/basic-navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Components/basic-navbar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/Components/basic-navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Components/basic-navbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/Components/basic-sidenav.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Components/basic-sidenav.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/Equipment.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Equipment.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/Equipment.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Equipment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/Rental.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Rental.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/Settings.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/Settings.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/target/classes/com/nimps/rpisystem/rpisystem/Controller/EquipmentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/target/classes/com/nimps/rpisystem/rpisystem/Controller/EquipmentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/target/classes/com/nimps/rpisystem/rpisystem/Controller/RentalController.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/target/classes/com/nimps/rpisystem/rpisystem/Controller/RentalController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/target/classes/com/nimps/rpisystem/rpisystem/Equipment.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/target/classes/com/nimps/rpisystem/rpisystem/Equipment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/target/classes/com/nimps/rpisystem/rpisystem/Rentals.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/target/classes/com/nimps/rpisystem/rpisystem/Rentals.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +88,7 @@
       <workItem from="1586466021070" duration="27000" />
       <workItem from="1587006363434" duration="47804000" />
       <workItem from="1587310708832" duration="33670000" />
-      <workItem from="1587492643130" duration="6976000" />
+      <workItem from="1587492643130" duration="25876000" />
     </task>
     <servers />
   </component>
@@ -122,6 +108,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="531" y="253" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1366.728@0.0.1366.728" timestamp="1586014314568" />
+    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1587518418030">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1587518418030" />
     <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1586014612042">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
