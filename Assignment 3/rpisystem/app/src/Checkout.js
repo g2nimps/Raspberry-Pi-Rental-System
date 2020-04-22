@@ -65,10 +65,10 @@ export default function Checkout(){
             axios.post('/api/rentals', {
                 student_panther_id: pantherId,
                 checkout_date: new Date(),
-                check_in_date: "",
-                due_date: new Date('May 25, 2020 11:59:00'),
+                check_in_date: null,
+                due_date: new Date(localStorage.getItem('semester_due_date')),
                 check_out_by: localStorage.getItem("pantherId"),
-                checkin_by: "",
+                checkin_by: null,
                 kit_barcode: kitBarcode
             })
         }

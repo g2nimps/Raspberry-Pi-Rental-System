@@ -60,7 +60,7 @@ function App(){
                 </Route>
 
                 <Route path='/message' component={() => {
-                    window.location.href = 'mailto:pbryan@cs.gsu.edu';
+                    window.location.href = 'mailto:'+localStorage.getItem('super_admin_email');
                     return null;
                 }}/>
 

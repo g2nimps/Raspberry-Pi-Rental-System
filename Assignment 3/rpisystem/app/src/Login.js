@@ -24,6 +24,19 @@ export default function Login(){
                             localStorage.setItem('lastName', user.last_name)
                             localStorage.setItem('pantherId', user.pantherId)
                             localStorage.setItem('role', user.role);
+
+                            axios.get('/api/settings')
+                                .then(function (response) {
+                                    response.data.forEach(setting => {
+                                        localStorage.setItem('semester_due_date', setting.semester_due_date);
+                                        localStorage.setItem('super_admin_email', setting.super_admin_email);
+                                    })
+                                })
+                                .catch(function (err) {
+                                    console.log(err);
+                                })
+
+
                             setalert_message("Login Successful! Redirecting...");
                             history.push("/");
                         } else {
@@ -39,21 +52,21 @@ export default function Login(){
         }
     }
     function AlertDismissible(props) {
-        if (props.message.length > 0) {
-            return (
-                <>
-                    <Alert variant={props.variant}>
-                        {props.message}
-                    </Alert>
-                </>
-            );
-        } else {
-            return (
-                <>
-                </>
-            );
+            if (props.message.length > 0) {
+                return (
+                    <>
+                        <Alert variant={props.variant}>
+                            {props.message}
+                        </Alert>
+                    </>
+                );
+            } else {
+                return (
+                    <>
+                    </>
+                );
 
-        }
+            }
 
     }
     function verifyCredentials(){

@@ -10,6 +10,7 @@ export default function BasicNavbar(){
         localStorage.removeItem("firstName");
         localStorage.removeItem("lastName");
         localStorage.removeItem("pantherId");
+        localStorage.removeItem("role");
         history.push('/login');
 
     }
