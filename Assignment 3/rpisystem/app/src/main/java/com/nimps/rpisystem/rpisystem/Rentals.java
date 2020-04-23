@@ -7,6 +7,7 @@ import java.sql.Timestamp;
 import java.util.Date;
 import javax.persistence.Table;
 
+@DataJpaTest
 @Entity
 @Table(name = "rentals")
 @EntityListeners(AuditingEntityListener.class)

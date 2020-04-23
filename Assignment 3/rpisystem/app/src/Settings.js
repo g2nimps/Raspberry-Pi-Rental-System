@@ -21,6 +21,10 @@ export default function Settings(){
             response.data.forEach(setting => {
                 setDueDate(setting.semester_due_date);
                 setSuperEmail(setting.super_admin_email);
+
+
+                localStorage.setItem('semester_due_date', setting.semester_due_date);
+                localStorage.setItem('super_admin_email', setting.super_admin_email);
             })
         })
         .catch(function (err) {
@@ -117,11 +121,11 @@ export default function Settings(){
                         <Form.Row>
                             <Form.Group as={Col}>
                                 <Form.Label>Return Date</Form.Label>
-                                <Form.Control value={semester_due_date} onChange={e => setDueDate(e.target.value)} placeholder="Return Date"></Form.Control>
+                                <Form.Control placeholder={semester_due_date} onChange={e => setDueDate(e.target.value)} ></Form.Control>
                             </Form.Group>
                                 <Form.Group as={Col}>
                                 <Form.Label>Network Admin Email</Form.Label>
-                                <Form.Control value={superemail} onChange={e => setSuperEmail(e.target.value)} placeholder="Network Admin Email"></Form.Control>
+                                <Form.Control placeholder={superemail} onChange={e => setSuperEmail(e.target.value)} ></Form.Control>
                             </Form.Group>
                         </Form.Row>
                         <Button onClick={settingsUpdate} variant="secondary">Update Settings</Button>
