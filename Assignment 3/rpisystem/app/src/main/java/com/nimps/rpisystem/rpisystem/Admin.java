@@ -1,13 +1,12 @@
 package com.nimps.rpisystem.rpisystem;
 import javax.persistence.Entity;
-@RunWith(SpringRunner.class)
-@SpringBootTest(classes = app.class)
+
 @Entity
 public class Admin extends User {
 
     public void addEquipment() {
     }
-    @Test
+
     public void removeEquipment() {
     }
 
