@@ -45,7 +45,7 @@ export default function Settings(){
         }
 
     }
-    if(localStorage.getItem('role').toLowerCase() !== "superadmin"){
+    if((!localStorage.getItem('role'))  || (localStorage.getItem('role').toLowerCase() !== "superadmin")){
         return(
             <div>
                 <BasicNavbar />

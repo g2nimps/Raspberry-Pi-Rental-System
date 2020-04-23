@@ -55,11 +55,11 @@ export default function Application(){
 
                         <CardLink type={"dark"}         link={"/checkout"} title={"Checkout Raspberry Pi"}          icon=<Icon.FaRaspberryPi/> description={"description"}/>
                         <CardLink type={"secondary"}    link={"/rental-late"} title={"View Late Rentals"}              icon=<Icon.FaExclamationTriangle/> description={"description"}/>
-                          {localStorage.getItem('role').toLowerCase() !== "superadmin"? <CardLink type={"secondary"}  link={"#"}  title={"Sign Out"}                icon={<Icon.FaPowerOff/>} description={"description"}/> : <CardLink type={"secondary"}    link={"/settings"} title={"System Settings"}                icon={<Icon.FaChalkboardTeacher/>} description={"description"}/>}
+                          {(localStorage.getItem('role')) && localStorage.getItem('role').toLowerCase() !== "superadmin"? <CardLink type={"secondary"}  link={"#"}  title={"Sign Out"}                icon={<Icon.FaPowerOff/>} description={"description"}/> : <CardLink type={"secondary"}    link={"/settings"} title={"System Settings"}                icon={<Icon.FaChalkboardTeacher/>} description={"description"}/>}
 
 
-                            <CardLink type={"secondary"}    link={"/checkin"} title={"Return Raspberry Pi Rental"}     icon=<Icon.FaBoxOpen/> description={"description"}/>
-                        <CardLink type={"secondary"}    link={"/equipment-damaged"} title={"View Broken Equipment"}          icon=<Icon.FaTools/> description={"description"}/>
+                       <CardLink type={"secondary"}    link={"/checkin"} title={"Return Raspberry Pi Rental"}     icon=<Icon.FaBoxOpen/> description={"description"}/>
+                       <CardLink type={"secondary"}    link={"/equipment-damaged"} title={"View Broken Equipment"}          icon=<Icon.FaTools/> description={"description"}/>
                        <CardLink type={"info"}         link={"/message"} title={"Contact Network Admin"}          icon=<Icon.FaEnvelopeOpenText/> description={"description"}/>
 
 

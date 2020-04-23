@@ -19,46 +19,36 @@ function App(){
                 <Route path="/" exact>
                     <Application />
                 </Route>
-
                 <Route path="/equipment" exact>
                     <Equipment />
                 </Route>
-
                 <Route path="/equipment-damaged" exact>
                     <Equipment />
                 </Route>
                 <Route path="/rental" exact>
                     <Rental />
                 </Route>
-
                 <Route path="/rental-late" exact>
                     <Rental />
                 </Route>
-
                 <Route path="/login" exact>
                     <Login/>
                 </Route>
-
                 <Route path="/settings" exact>
                     <Settings/>
                 </Route>
-
                 <Route path="/register" exact>
                     <Register />
                 </Route>
-
                 <Route path="/account/:pathParam1?" exact>
                     <Register />
                 </Route>
-
                 <Route path="/checkin/:pathParam1?" exact>
                     <Checkin />
                 </Route>
-
                 <Route path="/checkout/:pathParam1?" exact>
                     <Checkout />
                 </Route>
-
                 <Route path='/message' component={() => {
                     window.location.href = 'mailto:'+localStorage.getItem('super_admin_email');
                     return null;
