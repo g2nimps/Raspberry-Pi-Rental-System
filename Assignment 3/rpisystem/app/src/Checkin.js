@@ -9,20 +9,13 @@ import Badge from "react-bootstrap/Badge";
 import { Link } from 'react-router-dom';
 import * as Icon from 'react-icons/fa';
 import Jumbotron from "react-bootstrap/Jumbotron";
+import Alert from "react-bootstrap/Alert";
 
 export default function Checkin(){
     const [pantherId, setPantherId] = useState("")
     const [kitBarcode, setKitBarcode] = useState("")
-    const [rentals, setRentals] = useState("")
-    // const [rentalToCheckin, setRentalToCheckin] = useState("")
-    var rentalCheckIn = {}
-
-    useEffect(() => {
-        axios.get('/api/rentals')
-            .then(res => {
-                setRentals(res.data)
-            })
-    })
+    const [alert_message, setalert_message] = useState("")
+    const [isbroken, setBroken] = useState(false)
 
     if(!localStorage.getItem('firstName')){
         return(
@@ -52,38 +45,114 @@ export default function Checkin(){
             </div>
         );
     }
+    function AlertDismissible(props) {
+        if (props.message.length > 0) {
+            return (
+                <>
+                    <Alert variant={props.variant}>
+                        {props.message}
+                    </Alert>
+                </>
+            );
+        } else {
+            return (
+                <>
+                </>
+            );
 
+        }
+    }
     function checkin(){
-        if(localStorage.getItem("firstName") && verifyReturn()){
-            axios.put(`localhost:8080/api/rentals/${rentalCheckIn.id}`, {
-                id: rentalCheckIn.id,
-                student_panther_id: pantherId,
-                kit_barcode: kitBarcode,
-                check_in_by: localStorage.getItem("pantherId"),
-                checkout_by: rentalCheckIn.checkout_by,
-                checkoutDate: rentalCheckIn.checkoutDate,
-                checkInDate: new Date(),
-                rentalId: rentalCheckIn.rentalId,
-                due_date: rentalCheckIn.due_date
+        let rentalCheckIn = {};
+        axios.get('/api/rentals')
+            .then(res => {
+                let rentals = res.data;
+                for(let i = 0; i < rentals.length; i++){
+                    // console.log(rentals[i])
+                    //console.log(kitBarcode + " vs " + rentals[i].kit_barcode)
+                    // console.log(pantherId + " vs " + rentals[i].student_panther_id)
+                    if(Number(rentals[i].student_panther_id) === Number(pantherId) && rentals[i].kit_barcode == kitBarcode){
+                        console.log("should return true")
+                        console.log( rentals[i]);
+                        rentalCheckIn = rentals[i];
+                    }
+                }
+                if (rentalCheckIn.id !== null) {
+                    console.log("match was found")
+                    console.log(rentalCheckIn)
+                    axios.put('api/rentals/' + rentalCheckIn.id, {
+                        id: rentalCheckIn.id,
+                        student_panther_id: pantherId,
+                        kit_barcode: kitBarcode,
+                        checkin_by: localStorage.getItem("pantherId"),
+                        checkout_by: rentalCheckIn.checkout_by,
+                        checkoutDate: rentalCheckIn.checkoutDate,
+                        checkInDate: new Date(),
+                        rentalId: rentalCheckIn.rentalId,
+                        due_date: rentalCheckIn.due_date
+                    }).then(function (response) {
+
+
+                        if (isbroken == false ) {
+                            console.log('success')
+                            setalert_message("RPI Return Successful!");
+                        } else {
+                        // Update Status
+                            console.log("Updating Equipment List with Broken Item")
+
+
+                            axios.get('api/equipment')
+                                .then((response) => {
+                                    let equip_kit =  {};
+                                        for(let i = 0; i < response.data.length; i++){
+                                            if (response.data[i].barcode == kitBarcode){
+                                                //If equipment is late add to list
+                                                equip_kit = response.data[i];
+                                            }
+                                        }
+                                        console.log("equip_kit")
+                                    console.log(equip_kit)
+                                        // Create a PUT for updating value
+
+                                    axios.put('api/equipment/' + equip_kit.id, {
+                                        id: equip_kit.id,
+                                        item_model: equip_kit.item_model,
+                                        description: equip_kit.description,
+                                        serial: equip_kit.serial,
+                                        condition: "DAMAGED",
+                                        barcode: equip_kit.barcode
+                                    }).then(function (response) {
+
+                                        console.log('success + broken information stored')
+                                        setalert_message("RPI Return Completed | Status Updated To DAMAGED");
+                                    }) .catch(function(err){
+                                        console.log(err);
+                                        setalert_message("Return Completed, But Error with RPI Condition Update");
+                                    })
+
+                                })
+                                .catch(function(err){
+                                    console.log(err);
+                                    setalert_message("Return Completed, But Error with RPI Condition Retrieval");
+                                })
+
+
+
+
+
+                            setalert_message("RPI Returned, With RPI Status Updated as Broken!");
+                        }
+
+
+                    }).catch(function (err) {
+                        console.log(err);
+                        setalert_message("Error with RPI Return Submission");
+                    })
+                }
             })
-            console.log('success')
-        }
-        else{
-            console.log("Rental info is not correct")
-        }
+
     }
-    function verifyReturn(){
-        for(var i = 0; i < rentals.length; i++){
-            console.log(rentals[i])
-            if(rentals[i].student_panther_id === parseInt(pantherId) && rentals[i].kit_barcode === kitBarcode){
-                // setRentalToCheckin(rentals[i])
-                rentalCheckIn = rentals[i]
-                console.log(rentalCheckIn)
-                return true
-            }
-        }
-        return false
-    }
+
     return(
         <div>
             <BasicNavbar />
@@ -92,6 +161,8 @@ export default function Checkin(){
                 <Col xs={9} className="column equipColumn">
                     <h1>Return Raspberry Pi Rental</h1>
                     <Form>
+                        <AlertDismissible variant={alert_message !== "RPI Return Successful!" ? 'danger' : 'success'} message={alert_message}/>
+
                         <Form.Row>
                             <Form.Group as={Col}>
                                 <Form.Label>Student PantherId</Form.Label>
@@ -117,13 +188,14 @@ export default function Checkin(){
 
                                 <Form.Group>
                                     <Form.Check name="rpi_broken"
+                                                onChange={e => setBroken(e.target.value)}
                                         label="Returned Kit is Incomplete/RPI Broken"
                                     />
                                 </Form.Group>
 
                             </div>
                         </Form.Group>
-                        <Button onClick={checkin} variant="secondary">Checkin</Button>
+                        <Button onClick={checkin} variant="secondary">Return RPI</Button>
                     </Form>
                 </Col>
             </Row>

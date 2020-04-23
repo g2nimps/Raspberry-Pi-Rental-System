@@ -11,7 +11,8 @@ public class Equipment extends RpisystemApplication {
     public String serial;
     public String condition;
     @Column(unique=true)
-    public int barcode;
+    public String barcode;
+
     public long getId() {
         return id;
     }
@@ -44,11 +45,11 @@ public class Equipment extends RpisystemApplication {
         this.serial = serial;
     }
 
-    public int getBarcode() {
+    public String getBarcode() {
         return barcode;
     }
 
-    public void setBarcode(int barcode) {
+    public void setBarcode(String barcode) {
         this.barcode = barcode;
     }
 

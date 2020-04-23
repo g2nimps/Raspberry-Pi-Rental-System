@@ -9,19 +9,14 @@ import Badge from 'react-bootstrap/Badge';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import * as Icon from 'react-icons/fa';
+import Alert from "react-bootstrap/Alert";
 
 export default function Checkout(){
-    const [pantherId, setPantherId] = useState("")
+    const [UpantherId, setUPantherId] = useState("")
     const [kitBarcode, setKitBarcode] = useState("")
-    const [equipment, setEquipment] = useState("")
-    const [correctBarcode, setCorrectBarcode] = useState("")
-
-    useEffect(() => {
-        axios.get('/api/equipment')
-            .then(res => {
-                setEquipment(res.data)
-            })
-    })
+    const [check, setCheck] = useState(false)
+    const [correctBarcode, setCorrectBarcode] = useState(false)
+    const[alert_message, setalert_message] = useState("")
 
     if(!localStorage.getItem('firstName')){
         return(
@@ -52,6 +47,24 @@ export default function Checkout(){
         );
     }
 
+    function AlertDismissible(props) {
+        if (props.message.length > 0) {
+            return (
+                <>
+                    <Alert variant={props.variant}>
+                        {props.message}
+                    </Alert>
+                </>
+            );
+        } else {
+            return (
+                <>
+                </>
+            );
+
+        }
+    }
+
     function checkout(){
         /* this page would create a user, and then */
 //         "student_panther_id": "12345666",
@@ -63,33 +76,53 @@ export default function Checkout(){
 //         "kit_barcode": "812312"
         if(localStorage.getItem("firstName") && verifyRental()){
             axios.post('/api/rentals', {
-                student_panther_id: pantherId,
+                student_panther_id: UpantherId,
                 checkout_date: new Date(),
-                check_in_date: null,
-                due_date: new Date(localStorage.getItem('semester_due_date')),
-                check_out_by: localStorage.getItem("pantherId"),
-                checkin_by: null,
+                check_in_date: "",
+                due_date: localStorage.getItem('semester_due_date'),
+                checkout_by: localStorage.getItem('pantherId'),
+                checkin_by: "",
                 kit_barcode: kitBarcode
+            }).then(function (response) {
+                console.log( );
+                    setalert_message("RPI Checkout Successful!");
             })
-        }
-        else{
-            console.log("Rental info not correct")
+                .catch(function (err) {
+                    console.log(err);
+                    setalert_message("Error with Checkout Submission");
+                })
         }
     }
 
     function verifyRental(){
-        // const correctBarcode = false
-        if(!parseInt(pantherId)){
+        if(!parseInt(UpantherId)){
             console.log("PantherId must be a string of numbers")
+            setalert_message("PantherId must be a string of numbers");
             return false
         }
-        for(var i = 0; i < equipment.length; i++){
-            if(equipment[i].kit_barcode === equipment.barcode){
-                setCorrectBarcode(true)
-            }
-        }
-        if(correctBarcode === false){
-            console.log("Equipment Barcode entered is incorrect")
+        axios.get('/api/equipment')
+            .then(function (response) {
+                response.data.forEach(equipment => {
+                        if(Number(equipment.barcode) === Number(kitBarcode)){
+                            setCorrectBarcode(true);
+                        }
+                })
+                if(correctBarcode === false){
+                    console.log("Equipment Barcode entered is incorrect")
+                    setalert_message("Equipment Barcode entered is incorrect");
+                    return false
+                }
+            })
+            .catch(function (err) {
+                console.log(err);
+                return false
+            })
+
+
+
+        if (check === false ) {
+            console.log("User Must Agree to Checkout Disclaimer")
+            setalert_message("User Must Agree to Checkout Disclaimer");
             return false
         }
         return true
@@ -103,10 +136,11 @@ export default function Checkout(){
                 <Col xs={9} className="column equipColumn">
                     <h1>Checkout A Raspberry Pi</h1>
                     <Form className="checkout-form">
+                        <AlertDismissible variant={alert_message !== "RPI Checkout Successful!" ? 'danger' : 'success'} message={alert_message}/>
                         <Form.Row>
                             <Form.Group as={Col}>
                                 <Form.Label>Student PantherId</Form.Label>
-                                <Form.Control value={pantherId} onChange={e => setPantherId(e.target.value)} placeholder="Student's PantherId" required></Form.Control>
+                                <Form.Control value={UpantherId} onChange={e => setUPantherId(e.target.value)} placeholder="Student's PantherId" required></Form.Control>
                             </Form.Group>
                             <Form.Group as={Col}>
                                 <Form.Label>Equipment Kit Barcode</Form.Label>
@@ -124,6 +158,8 @@ export default function Checkout(){
                                 <Form.Group>
                                     <Form.Check
                                         required
+                                        onChange={e => setCheck(e.target.value)}
+                                        name={"disclaimer_check"}
                                         label="Student Agrees To The Disclaimer"
                                         feedback="You must agree before submitting."
                                     />
@@ -131,7 +167,7 @@ export default function Checkout(){
 
                             </div>
                         </Form.Group>
-                        <Button onClick={checkout} variant="danger">Checkout</Button>
+                        <Button onClick={checkout} variant="danger">Checkout RPI</Button>
 
                     </Form>
                 </Col>

@@ -52,11 +52,11 @@ public class EquipmentController {
         equipment.setItem_model(equipmentDetails.getItem_model());
         equipment.setSerial(equipmentDetails.getSerial());
         equipment.setSerial(equipmentDetails.getCondition());
-//        user.setPantherId(userDetails.getPantherId());
 
         Equipment updatedEquipment = EquipmentRepo.save(equipment);
         return updatedEquipment;
     }
+
 
     // Delete an Equipment
     @DeleteMapping("/equipment/{id}")
