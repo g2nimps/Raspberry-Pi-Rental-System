@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Row, Col, Container, Form, Button } from 'react-bootstrap';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import './Equipment.css';

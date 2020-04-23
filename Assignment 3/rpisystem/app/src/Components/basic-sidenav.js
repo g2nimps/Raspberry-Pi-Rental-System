@@ -1,13 +1,14 @@
 import React, {Component} from 'react';
-import { Col, Image, Row } from 'react-bootstrap';
+import { Col, Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './basic-sidenav.css'
 import rpilogo from '../rpi_white.png';
+
 class BasicSideNav extends Component{
     render(){
         return(
             <Col xs={3} className="sidebar">
-                    <Image src={rpilogo} alt={"Logo"} />
+                <Image src={rpilogo} alt={"Logo"} />
                 <h1>Equipment Inventory</h1>
                 <p>Due Date: <span>{localStorage.getItem('semester_due_date')}</span></p>
                 <hr></hr>
@@ -19,6 +20,12 @@ class BasicSideNav extends Component{
                 <Link to="/rental-late" className="link">View Late Rentals</Link>
                 <Link to="/message" className="link">Contact Network Admin</Link>
                 <Link to="/support" className="link">Get Technical Support</Link>
+                {(localStorage.getItem('role')) && localStorage.getItem('role').toLowerCase() === "superadmin"?
+                    <Link to="/settings" className="link system_admin">System Settings</Link>
+                    :
+                    null
+                }
+
             </Col>
         );
     }

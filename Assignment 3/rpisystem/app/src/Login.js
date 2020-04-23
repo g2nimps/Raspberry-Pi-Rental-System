@@ -4,7 +4,6 @@ import { Link, useHistory } from "react-router-dom";
 import "./Login.css";
 import BasicNavbar from "./Components/basic-navbar";
 import axios from 'axios';
-import Notifications from './Components/notifications';
 import Alert from "react-bootstrap/Alert";
 
 export default function Login(){

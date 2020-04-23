@@ -38,6 +38,9 @@
     color: #dc1a50;
 }
 
+.sidebar a.link.system_admin {background:#6b293c;color:white;}
+.sidebar a.link:hover {background:#15141438;color:white;}
+
 span {
     border: 1px solid #ffffff85;
     padding: 2px 6px;

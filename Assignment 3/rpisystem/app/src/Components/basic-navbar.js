@@ -1,7 +1,7 @@
 import React from 'react';
 import {Navbar, Nav, NavDropdown} from 'react-bootstrap'
 import './basic-navbar.css'
-import { useHistory, Redirect } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 export default function BasicNavbar(){
     const history = useHistory();
