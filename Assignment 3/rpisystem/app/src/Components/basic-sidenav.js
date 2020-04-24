@@ -12,6 +12,7 @@ class BasicSideNav extends Component{
                 <h1>Equipment Inventory</h1>
                 <p>Due Date: <span>{localStorage.getItem('semester_due_date')}</span></p>
                 <hr></hr>
+                <Link to="/addkit" className="link">Add New RPI Kit</Link>
                 <Link to="/equipment" className="link">View All Equipment</Link>
                 <Link to="/equipment-damaged" className="link">View Broken Equipment</Link>
                 <Link to="/checkout" className="link">Checkout Raspberry Pi</Link>

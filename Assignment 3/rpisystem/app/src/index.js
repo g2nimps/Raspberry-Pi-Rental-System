@@ -9,6 +9,7 @@ import Checkin from './Checkin';
 import Checkout from './Checkout';
 import Rental from './Rental';
 import Settings from './Settings';
+import AddKit from './AddKit';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
@@ -36,6 +37,9 @@ function App(){
                 </Route>
                 <Route path="/settings" exact>
                     <Settings/>
+                </Route>
+                <Route path="/addkit" exact>
+                    <AddKit/>
                 </Route>
                 <Route path="/register" exact>
                     <Register />

@@ -117,6 +117,7 @@ export default function Register(){
             })
             .catch(function(err){
                console.log(err);
+                setalert_message("Issue with submission");
             })
         }
         else{

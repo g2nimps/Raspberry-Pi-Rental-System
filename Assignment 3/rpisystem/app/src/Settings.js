@@ -61,7 +61,7 @@ export default function Settings(){
                                         <br/>Please log in to gain access.
                                     </p>
                                     <p>
-                                        <Link to="/" >
+                                        <Link to="/">
                                             <Button variant="primary">Back To Home</Button>
                                         </Link>
                                     </p>
@@ -74,39 +74,24 @@ export default function Settings(){
         );
     }
     function settingsUpdate(){
-        if(verifySettings()) {
+        if (superemail == "") {
+            setSuperEmail(localStorage.getItem('super_admin_email'));
+        }
+        if (semester_due_date == "") {
+            setDueDate(localStorage.getItem('semester_due_date'));
+        }
+        axios.put('/api/settings/1', {
+            id : 1,
+            semester_due_date: new Date(semester_due_date),
+            super_admin_email:  superemail
+        }).then(function (response) {
+            setalert_message("Settings Successfully Saved!");
+        }).catch(function (err) {
+            console.log(err);
+            setalert_message("Error with Updating Settings");
+        });
+    }
 
-            axios.put('/api/settings/1', {
-                id : 1,
-                semester_due_date: new Date(semester_due_date).toUTCString(),
-                super_admin_email: superemail
-            }).then(function (response) {
-                setalert_message("Settings Successfully Saved!");
-            })
-        }
-        else{
-            // console.log("Settings Information is invalid");
-            setalert_message("Settings Information is invalid");
-        }
-    }
-    function verifySettings(){
-        if(!superemail.includes('@')){
-            // console.log("Invalid Email");
-            setalert_message("Invalid Email");
-            return false;
-        }
-        if(superemail === ""){
-            // console.log("Email cannot be empty");
-            setalert_message("Email cannot be empty");
-            return false;
-        }
-        if(semester_due_date === ""){
-            //  console.log("Semester due date cannot be empty");
-            setalert_message("Semester due date cannot be empty");
-            return false;
-        }
-        return true;
-    }
     return(
         <div>
             <BasicNavbar />
