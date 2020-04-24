@@ -22,11 +22,11 @@ Project Description: Check In & Check Out System For Raspberry Pi
 
 ## Project Members:
 
-* Nicholas Economou 	- Requirements Elicitation
-* Isaiah Nwukor 		- Development (Implementation & Frontend)
-* Marco Martinez 		- Development (Implementation)
-* Piyush Dahiya 		- System Design
-* Stuti Rana 			- Requirements & Testing
+* **Nicholas Economou **	- Requirements Elicitation
+* **Isaiah Nwukor **		- Development (Implementation & Frontend)
+* **Marco Martinez 	**	- Development (Implementation)
+* **Piyush Dahiya **		- System Design
+* **Stuti Rana **			- Requirements & Testing
 
 ## Support
 If you have any questions, feel free to email us at [nimpsengineering@gmail.com](mailto:nimpsengineering@gmail.com)
