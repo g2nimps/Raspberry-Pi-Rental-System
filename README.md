@@ -1,14 +1,28 @@
 # Project Name:  Raspberry Pi-Rental-System
 Project Description: Check In & Check Out System For Raspberry Pi
 
-Team Members:
+Project Members:
+Nicholas Economou 	- Requirements Elicitation
+Isaiah Nwukor 		- Development (Implementation & Frontend)
+Marco Martinez 		- Development (Implementation)
+Piyush Dahiya 		- System Design
+Stuti Rana 			- Requirements & Testing
 
-Stuti Rana
+## User's Guide
+[Installation Guide](https://docs.google.com/document/d/14WNN0S6iu8_gItWbCOhYK-KuZ54nOLR-fiob-SX-Ov0/edit?usp=sharing)
+[About Project (Slide Deck)](https://docs.google.com/presentation/d/1_cA5po7TieMJ19O2Ry-bIDO4ETs2j9clK7jSzqILHps/edit?usp=sharing)
 
-Nicholas Economou
 
-Marco Martinez
+## Tech Stack
 
-Isaiah Nwukor
+Java
+Spring Boot, Spring JPA (Mysql DBMS)
+React.js & React Bootstrap
+Axios 
+IntelliJ
+Apache Maven
+Node JS, Yarn
 
-Piyush Dahiya
+## Support
+If you have any questions, feel free to email us at [mailto:nimpsengineering@gmail.com](nimpsengineering@gmail.com)
+
