@@ -1,7 +1,9 @@
 # Project Name:  Raspberry Pi-Rental-System
 Project Description: Check In & Check Out System For Raspberry Pi
 
+
 ## User's Guide
+[User's Guide](https://www.youtube.com/watch?v=RxXp1z6wsLY)
 
 [Installation Guide](https://docs.google.com/document/d/14WNN0S6iu8_gItWbCOhYK-KuZ54nOLR-fiob-SX-Ov0/edit?usp=sharing)
 
@@ -18,7 +20,7 @@ Project Description: Check In & Check Out System For Raspberry Pi
 * Apache Maven
 * Node JS, Yarn
 
-### Project Members:
+## Project Members:
 
 * Nicholas Economou 	- Requirements Elicitation
 * Isaiah Nwukor 		- Development (Implementation & Frontend)
