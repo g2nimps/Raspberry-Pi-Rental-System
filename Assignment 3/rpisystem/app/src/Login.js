@@ -9,7 +9,7 @@ import Alert from "react-bootstrap/Alert";
 export default function Login(){
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const[alert_message, setalert_message] = useState("");
+    const [alert_message, setalert_message] = useState("");
     const history = useHistory();
 
     function login(){
@@ -34,8 +34,6 @@ export default function Login(){
                                 .catch(function (err) {
                                     console.log(err);
                                 })
-
-
                             setalert_message("Login Successful! Redirecting...");
                             history.push("/");
                         } else {
@@ -66,21 +64,20 @@ export default function Login(){
                 );
 
             }
-
     }
     function verifyCredentials(){
         if(!email.includes('@')){
-            console.log("Invalid Email");
+            //console.log("Invalid Email");
             setalert_message("Invalid Email");
             return false;
         }
         if(email === ""){
-            console.log("Email cannot be empty");
+            //console.log("Email cannot be empty");
             setalert_message("Email cannot be empty");
             return false;
         }
         if(password === ""){
-            console.log("Password cannot be empty");
+            //console.log("Password cannot be empty");
             setalert_message("Password cannot be empty");
             return false;
         }

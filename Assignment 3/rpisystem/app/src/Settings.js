@@ -19,10 +19,6 @@ export default function Settings(){
     axios.get('/api/settings')
         .then(function (response) {
             response.data.forEach(setting => {
-                setDueDate(setting.semester_due_date);
-                setSuperEmail(setting.super_admin_email);
-
-
                 localStorage.setItem('semester_due_date', setting.semester_due_date);
                 localStorage.setItem('super_admin_email', setting.super_admin_email);
             })
@@ -79,8 +75,10 @@ export default function Settings(){
     }
     function settingsUpdate(){
         if(verifySettings()) {
-            axios.put('/api/settings', {
-                semester_due_date: semester_due_date,
+
+            axios.put('/api/settings/1', {
+                id : 1,
+                semester_due_date: new Date(semester_due_date).toUTCString(),
                 super_admin_email: superemail
             }).then(function (response) {
                 setalert_message("Settings Successfully Saved!");
@@ -121,11 +119,11 @@ export default function Settings(){
                         <Form.Row>
                             <Form.Group as={Col}>
                                 <Form.Label>Return Date</Form.Label>
-                                <Form.Control placeholder={semester_due_date} onChange={e => setDueDate(e.target.value)} ></Form.Control>
+                                <Form.Control placeholder={ localStorage.getItem('semester_due_date')} onChange={e => setDueDate(e.target.value)} ></Form.Control>
                             </Form.Group>
                             <Form.Group as={Col}>
                                 <Form.Label>Network Admin Email</Form.Label>
-                                <Form.Control placeholder={superemail} onChange={e => setSuperEmail(e.target.value)} ></Form.Control>
+                                <Form.Control placeholder={localStorage.getItem('super_admin_email')} onChange={e => setSuperEmail(e.target.value)} ></Form.Control>
                             </Form.Group>
                         </Form.Row>
                         <Button onClick={settingsUpdate} variant="secondary">Update Settings</Button>

@@ -47,37 +47,42 @@ export default function Register(){
     function validateInfo(){
         //console.log(users);
         if(first_name === ""){
-            console.log("First name cannot be empty");
+            //console.log("First name cannot be empty");
             setalert_message("First name cannot be empty");
             return false
         }
         if(last_name === ""){
-            console.log("Last name cannot be empty");
+            //console.log("Last name cannot be empty");
             setalert_message("Last name cannot be empty");
             return false
         }
         if(!email.includes('@')){
-            console.log("Invalid Email");
+            //console.log("Invalid Email");
             setalert_message("Invalid Email");
             return false
         }
 
         for(var i = 0; i < users.length; i++){
             if(users[i].email === email){
-                console.log("Email already in use");
+                //console.log("Email already in use");
                 setalert_message("Email already in use");
                 return false
             }
         }
         
         if(password.length < 8){
-            console.log(password.length);
-            console.log("Password does not meet length requirement");
+            //console.log(password.length);
+            //console.log("Password does not meet length requirement");
             setalert_message("Password does not meet length requirement");
             return false
         }
+
+        if(pantherId.length < 9){
+            setalert_message("PantherID needs to be at least 9 digits");
+            return false
+        }
         if(!parseInt(pantherId)){
-            console.log("PantherId must be a string of numbers");
+            //console.log("PantherId must be a string of numbers");
             setalert_message("PantherId must be a string of numbers");
             return false
         }
@@ -92,7 +97,7 @@ export default function Register(){
             if(location.pathname !== "/account") {
                 role = "Admin";
             }
-            console.log(role);
+            //console.log(role);
             axios.post('/api/users',{
                 first_name: first_name,
                 last_name: last_name,
@@ -104,7 +109,7 @@ export default function Register(){
             .then(function(response){
                 console.log(response);
                 setalert_message("Registration Successful");
-                if(location.pathname == "/account") {
+                if(location.pathname === "/account") {
                     history.push("/");
                 } else {
                     history.push("/login");
@@ -126,7 +131,7 @@ export default function Register(){
                 <Row>
                     <Col xs={2} className="left-sidebar"></Col>
                     <Col className="main">
-                        <h1>{location.pathname == "/account" ? "Add New Student Account" : "Register Account"}</h1>
+                        <h1>{location.pathname === "/account" ? "Add New Student Account" : "Register Account"}</h1>
 
                         <Form onSubmit={register} controlid="form">
                             <AlertDismissible variant={alert_message !== "Registration Successful" ? 'danger' : 'success'} message={alert_message}/>
@@ -158,7 +163,7 @@ export default function Register(){
                             <Link className="loginLink" to="/login">Already have an account? Click here to login</Link>
                         </Form>
                         <div className="text-center" style={{paddingTop:"10px"}}>
-                            <Button onClick={register} style={{fontSize:"15px"}} variant="dark">{location.pathname == "/account" ? "Register New Student" : "Register"}</Button>
+                            <Button onClick={register} style={{fontSize:"15px"}} variant="dark">{location.pathname === "/account" ? "Register New Student" : "Register"}</Button>
                         </div>
                     </Col>
                     <Col xs={2} className="right-sidebar"></Col>

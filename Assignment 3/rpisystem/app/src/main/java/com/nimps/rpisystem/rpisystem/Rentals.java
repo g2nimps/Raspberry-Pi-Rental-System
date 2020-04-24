@@ -15,7 +15,7 @@ public class Rentals extends RpisystemApplication {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long id;
 
-    public int student_panther_id;
+    public String student_panther_id;
 
     @Column(nullable = false, updatable = false)
     @Temporal(TemporalType.DATE)
@@ -28,10 +28,10 @@ public class Rentals extends RpisystemApplication {
 
     @Temporal(TemporalType.DATE)
     public Date due_date;
-    public int checkout_by;
+    public String checkout_by;
     @Column(nullable = true)
-    public int checkin_by;
-    public int kit_barcode;
+    public String checkin_by;
+    public String kit_barcode;
 
     public long getRentalId() {
         return id;
@@ -41,11 +41,11 @@ public class Rentals extends RpisystemApplication {
         this.id = id;
     }
 
-    public int getStudentPantherId() {
+    public String getStudentPantherId() {
         return student_panther_id;
     }
 
-    public void setStudentPantherId(int student_panther_id) {
+    public void setStudentPantherId(String student_panther_id) {
         this.student_panther_id = student_panther_id;
     }
 
@@ -73,27 +73,27 @@ public class Rentals extends RpisystemApplication {
         this.due_date = due_date;
     }
 
-    public int getCheckoutBy() {
+    public String getCheckoutBy() {
         return checkout_by;
     }
 
-    public void setCheckoutBy(int checkout_by) {
+    public void setCheckoutBy(String checkout_by) {
         this.checkout_by = checkout_by;
     }
 
-    public int getCheckinBy() {
+    public String getCheckinBy() {
         return checkin_by;
     }
 
-    public void setCheckinBy(int checkin_by) {
+    public void setCheckinBy(String checkin_by) {
         this.checkin_by = checkin_by;
     }
 
-    public int getKitBarcode() {
+    public String getKitBarcode() {
         return kit_barcode;
     }
 
-    public void setKitBarcode(int kit_barcode) {
+    public void setKitBarcode(String kit_barcode) {
         this.kit_barcode = kit_barcode;
     }
 }

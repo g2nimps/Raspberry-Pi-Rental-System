@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 import BasicNavbar from './Components/basic-navbar';
-import { Row, Col, Container, Form, Button, Card } from 'react-bootstrap';
+import { Row, Col, Container, Card } from 'react-bootstrap';
 import CardColumns from 'react-bootstrap/CardColumns';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Link, useHistory} from 'react-router-dom';
@@ -10,7 +10,6 @@ import * as Icon from 'react-icons/fa';
 
 export default function Application(){
     const history = useHistory();
-
     function logout(){
         localStorage.removeItem("firstName");
         localStorage.removeItem("lastName");
@@ -19,11 +18,17 @@ export default function Application(){
         history.push('/login');
 
     }
+
+
+    if (!localStorage.getItem("firstName") && (history.location.pathname !== "/register" || history.location.pathname !== "/login")) {
+        history.push('/login');
+    }
+
     function CardLink(props) {
 
         return (
             <>
-                <Link to={props.link} onClick={props.link == "#" ? logout : null}>
+                <Link to={props.link} onClick={props.link === "#" ? logout : null}>
                 <Card
                     bg={props.type}
                     text={props.type.toLowerCase() === 'light' ? 'dark' : 'white'}

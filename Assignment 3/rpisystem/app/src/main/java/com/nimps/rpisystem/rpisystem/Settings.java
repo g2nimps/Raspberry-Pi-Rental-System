@@ -8,7 +8,7 @@ import java.util.Date;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "settings")
+@Table(name = "`settings`")
 @EntityListeners(AuditingEntityListener.class)
 public class Settings extends RpisystemApplication {
 
@@ -20,7 +20,6 @@ public class Settings extends RpisystemApplication {
     public Date semester_due_date;
 
     public String super_admin_email;
-
 
     public long getId() {
         return id;
@@ -34,9 +33,8 @@ public class Settings extends RpisystemApplication {
         return  semester_due_date;
     }
     public void setSemesterDueDate(Date  semester_due_date) {
-        this. semester_due_date =  semester_due_date;
+        this.semester_due_date = semester_due_date ;
     }
-
 
     public String getSuperAdminEmail() {
         return super_admin_email;
@@ -44,5 +42,7 @@ public class Settings extends RpisystemApplication {
     public void setSuperAdminEmail(String super_admin_email) {
         this.super_admin_email = super_admin_email;
     }
+
+
 
 }
