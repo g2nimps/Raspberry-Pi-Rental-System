@@ -1,7 +1,7 @@
 # Project Name:  Raspberry Pi-Rental-System
 Project Description: Check In & Check Out System For Raspberry Pi
 
-###Project Members:
+### Project Members:
 
 Nicholas Economou 	- Requirements Elicitation
 
@@ -37,5 +37,5 @@ Apache Maven
 Node JS, Yarn
 
 ## Support
-If you have any questions, feel free to email us at [mailto:nimpsengineering@gmail.com](nimpsengineering@gmail.com)
+If you have any questions, feel free to email us at [nimpsengineering@gmail.com](mailto:nimpsengineering@gmail.com)
 
