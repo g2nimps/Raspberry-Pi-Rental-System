@@ -1,7 +1,10 @@
 package com.nimps.rpisystem.rpisystem;
 import javax.persistence.*;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
+@Table(name = "equipment")
+@EntityListeners(AuditingEntityListener.class)
 public class Equipment extends RpisystemApplication {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -12,6 +15,17 @@ public class Equipment extends RpisystemApplication {
     public String condition;
     @Column(unique=true)
     public String barcode;
+
+    public Equipment(){ }
+
+    public Equipment(long id, String item_model, String description, String serial, String condition, String barcode){
+        this.id = id;
+        this.item_model = item_model;
+        this.description = description;
+        this.serial = serial;
+        this.condition = condition;
+        this.barcode = barcode;
+    }
 
     public long getId() {
         return id;

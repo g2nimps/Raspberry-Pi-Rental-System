@@ -37,7 +37,7 @@ export default function BasicNavbar(){
     }
     return(
         <Navbar className="navbar">
-            <Navbar.Brand className="brand" href="/login" style={{color:"white", fontSize:"20px"}}>RPI Rental System</Navbar.Brand>
+            <Navbar.Brand className="brand" href="/" style={{color:"white", fontSize:"20px"}}>RPI Rental System</Navbar.Brand>
             <Nav className="justify-content-end">
                 <Nav.Item>
                     <Nav.Link href="/login" style={{color:"white", fontSize:"15px"}}>Login</Nav.Link>

@@ -10,12 +10,14 @@ import { Link } from 'react-router-dom';
 import * as Icon from 'react-icons/fa';
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Alert from "react-bootstrap/Alert";
+// axios.defaults.proxy.host = "http://localhost:8080"
 
 export default function Checkin(){
     const [pantherId, setPantherId] = useState("")
     const [kitBarcode, setKitBarcode] = useState("")
     const [alert_message, setalert_message] = useState("")
     const [isbroken, setBroken] = useState(false)
+    var equip_kit = {}
 
     if(!localStorage.getItem('firstName')){
         return(
@@ -101,20 +103,21 @@ export default function Checkin(){
                             console.log("Updating Equipment List with Broken Item")
 
 
-                            axios.get('api/equipment')
+                            axios.get('/api/equipment')
                                 .then((response) => {
-                                    let equip_kit =  {};
-                                        for(let i = 0; i < response.data.length; i++){
-                                            if (response.data[i].barcode == kitBarcode){
-                                                //If equipment is late add to list
-                                                equip_kit = response.data[i];
-                                            }
+                                    // let equip_kit =  {};
+                                    for(let i = 0; i < response.data.length; i++){
+                                        if (response.data[i].barcode == kitBarcode){
+                                            //If equipment is late add to list
+                                            console.log(response.data[i])                                                
+                                            equip_kit = response.data[i];
                                         }
-                                        console.log("equip_kit")
-                                    console.log(equip_kit)
+                                    }
+                                    console.log("equip_kit")
+                                    // console.log(equip_kit)
                                         // Create a PUT for updating value
 
-                                    axios.put('api/equipment/' + equip_kit.id, {
+                                    axios.put('http://localhost:8080/api/equipment/' + equip_kit.id, {
                                         id: equip_kit.id,
                                         item_model: equip_kit.item_model,
                                         description: equip_kit.description,
@@ -135,11 +138,6 @@ export default function Checkin(){
                                     console.log(err);
                                     setalert_message("Return Completed, But Error with RPI Condition Retrieval");
                                 })
-
-
-
-
-
                             setalert_message("RPI Returned, With RPI Status Updated as Broken!");
                         }
 
