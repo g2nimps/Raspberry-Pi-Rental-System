@@ -31,11 +31,11 @@ public class User {
     public String password;
 
     @Column(unique=true)
-    public int pantherId;
+    public String pantherId;
 
     public User(){ }
 
-    public User(long id, String first_name, String last_name, String password, int pantherId, String role){
+    public User(long id, String first_name, String last_name, String password, String pantherId, String role){
         this.id = id;
         this.first_name = first_name;
         this.last_name = last_name;
@@ -100,11 +100,11 @@ public class User {
         this.role = role;
     }
 
-    public int getPantherId() {
+    public String getPantherId() {
         return pantherId;
     }
 
-    public void setPantherId(int pantherId) {
+    public void setPantherId(String pantherId) {
         this.pantherId = pantherId;
     }
 }

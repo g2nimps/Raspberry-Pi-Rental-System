@@ -12,6 +12,7 @@ public class Equipment extends RpisystemApplication {
     public String item_model;
     public String description;
     public String serial;
+    @Column(name="\"condition\"")
     public String condition;
     @Column(unique=true)
     public String barcode;

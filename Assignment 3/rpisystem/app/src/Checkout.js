@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Row, Col, Container, Form, Button } from 'react-bootstrap';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import './Equipment.css';
@@ -12,11 +12,10 @@ import * as Icon from 'react-icons/fa';
 import Alert from "react-bootstrap/Alert";
 
 export default function Checkout(){
-    const [UpantherId, setUPantherId] = useState("")
-    const [kitBarcode, setKitBarcode] = useState("")
-    const [check, setCheck] = useState(false)
-    const [correctBarcode, setCorrectBarcode] = useState(false)
-    const[alert_message, setalert_message] = useState("")
+    const [UpantherId, setUPantherId] = useState("");
+    const [kitBarcode, setKitBarcode] = useState("");
+    const [check, setCheck] = useState(false);
+    const[alert_message, setalert_message] = useState("");
 
     if(!localStorage.getItem('firstName')){
         return(
@@ -66,66 +65,78 @@ export default function Checkout(){
     }
 
     function checkout(){
-        /* this page would create a user, and then */
-//         "student_panther_id": "12345666",
-//         "checkout_date": "2020-04-15",
-//         "check_in_date": "",
-//         "due_date": "2020-05-22",
-//         "checkout_by": "0984676",
-//         "checkin_by": "",
-//         "kit_barcode": "812312"
-        if(localStorage.getItem("firstName") && verifyRental()){
-            axios.post('/api/rentals', {
-                student_panther_id: UpantherId,
-                checkout_date: new Date(),
-                check_in_date: "",
-                due_date: localStorage.getItem('semester_due_date'),
-                checkout_by: localStorage.getItem('pantherId'),
-                checkin_by: "",
-                kit_barcode: kitBarcode
-            }).then(function (response) {
-                console.log( );
-                    setalert_message("RPI Checkout Successful!");
-            })
+        if(verifyRental()){
+            axios.get('/api/rentals')
+                .then(function (response) {
+                    let check_code = true;
+                    response.data.forEach(rental => {
+                        if((rental.check_in_date === null) && (UpantherId === rental.student_panther_id)){
+                            setalert_message("User " + UpantherId +" Already Checked Out RPI - Barcode: " + rental.kit_barcode);
+                            check_code = false;
+                        }
+                    })
+                    if (check_code === true) {
+                        axios.get('/api/equipment')
+                            .then(function (response) {
+                                let barcode_check = false;
+                                response.data.forEach(equipment => {
+                                    if(Number(equipment.barcode) === Number(kitBarcode)){
+                                        barcode_check = true;
+                                    }
+                                })
+                                if(barcode_check === false){
+                                    //console.log("Equipment Barcode entered is incorrect")
+                                    setalert_message("RPI Equipment Barcode Does Not Exist");
+                                } else {
+                                    axios.post('/api/rentals', {
+                                        student_panther_id: UpantherId,
+                                        checkout_date: new Date(),
+                                        check_in_date: "",
+                                        due_date: localStorage.getItem('semester_due_date'),
+                                        checkout_by: localStorage.getItem('pantherId'),
+                                        checkin_by: "",
+                                        kit_barcode: kitBarcode
+                                    }).then(function (response) {
+                                        setalert_message("RPI Checkout Successful!");
+                                    }).catch(function (err) {
+                                        console.log(err);
+                                        setalert_message("Error with Checkout Submission");
+                                    })
+
+                                }
+
+                            })
+                            .catch(function (err) {
+                                console.log(err);
+                            })
+
+                    }
+                })
                 .catch(function (err) {
                     console.log(err);
-                    setalert_message("Error with Checkout Submission");
-                })
+                });
+
         }
     }
 
     function verifyRental(){
         if(!parseInt(UpantherId)){
-            console.log("PantherId must be a string of numbers")
+            //console.log("PantherId must be a string of numbers")
             setalert_message("PantherId must be a string of numbers");
-            return false
+            return false;
+
         }
-        axios.get('/api/equipment')
-            .then(function (response) {
-                response.data.forEach(equipment => {
-                        if(Number(equipment.barcode) === Number(kitBarcode)){
-                            setCorrectBarcode(true);
-                        }
-                })
-                if(correctBarcode === false){
-                    console.log("Equipment Barcode entered is incorrect")
-                    setalert_message("Equipment Barcode entered is incorrect");
-                    return false
-                }
-            })
-            .catch(function (err) {
-                console.log(err);
-                return false
-            })
-
-
-
-        if (check === false ) {
-            console.log("User Must Agree to Checkout Disclaimer")
+        if(kitBarcode.length === 0 || kitBarcode === ""){
+            //console.log("PantherId must be a string of numbers")
+            setalert_message("Barcode cannot be empty");
+            return false;
+        }
+        if (check === false) {
+            //console.log("User Must Agree to Checkout Disclaimer")
             setalert_message("User Must Agree to Checkout Disclaimer");
-            return false
+            return false;
         }
-        return true
+        return true;
     }
 
     return(

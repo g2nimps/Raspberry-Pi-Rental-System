@@ -19,8 +19,8 @@ export default function Settings(){
     axios.get('/api/settings')
         .then(function (response) {
             response.data.forEach(setting => {
-                setDueDate(setting.semester_due_date);
-                setSuperEmail(setting.super_admin_email);
+                localStorage.setItem('semester_due_date', setting.semester_due_date);
+                localStorage.setItem('super_admin_email', setting.super_admin_email);
             })
         })
         .catch(function (err) {
@@ -61,7 +61,7 @@ export default function Settings(){
                                         <br/>Please log in to gain access.
                                     </p>
                                     <p>
-                                        <Link to="/" >
+                                        <Link to="/">
                                             <Button variant="primary">Back To Home</Button>
                                         </Link>
                                     </p>
@@ -74,37 +74,24 @@ export default function Settings(){
         );
     }
     function settingsUpdate(){
-        if(verifySettings()) {
-            axios.put('/api/settings', {
-                semester_due_date: semester_due_date,
-                super_admin_email: superemail
-            }).then(function (response) {
-                setalert_message("Settings Successfully Saved!");
-                })
+        if (superemail == "") {
+            setSuperEmail(localStorage.getItem('super_admin_email'));
         }
-        else{
-            console.log("Settings Information is invalid");
-            setalert_message("Settings Information is invalid");
+        if (semester_due_date == "") {
+            setDueDate(localStorage.getItem('semester_due_date'));
         }
+        axios.put('/api/settings/1', {
+            id : 1,
+            semester_due_date: new Date(semester_due_date),
+            super_admin_email:  superemail
+        }).then(function (response) {
+            setalert_message("Settings Successfully Saved!");
+        }).catch(function (err) {
+            console.log(err);
+            setalert_message("Error with Updating Settings");
+        });
     }
-    function verifySettings(){
-        if(!superemail.includes('@')){
-            console.log("Invalid Email");
-            setalert_message("Invalid Email");
-            return false;
-        }
-        if(superemail === ""){
-            console.log("Email cannot be empty");
-            setalert_message("Email cannot be empty");
-            return false;
-        }
-        if(semester_due_date === ""){
-            console.log("Semester due date cannot be empty");
-            setalert_message("Semester due date cannot be empty");
-            return false;
-        }
-        return true;
-    }
+
     return(
         <div>
             <BasicNavbar />
@@ -117,11 +104,11 @@ export default function Settings(){
                         <Form.Row>
                             <Form.Group as={Col}>
                                 <Form.Label>Return Date</Form.Label>
-                                <Form.Control value={semester_due_date} onChange={e => setDueDate(e.target.value)} placeholder="Return Date"></Form.Control>
+                                <Form.Control placeholder={ localStorage.getItem('semester_due_date')} onChange={e => setDueDate(e.target.value)} ></Form.Control>
                             </Form.Group>
-                                <Form.Group as={Col}>
+                            <Form.Group as={Col}>
                                 <Form.Label>Network Admin Email</Form.Label>
-                                <Form.Control value={superemail} onChange={e => setSuperEmail(e.target.value)} placeholder="Network Admin Email"></Form.Control>
+                                <Form.Control placeholder={localStorage.getItem('super_admin_email')} onChange={e => setSuperEmail(e.target.value)} ></Form.Control>
                             </Form.Group>
                         </Form.Row>
                         <Button onClick={settingsUpdate} variant="secondary">Update Settings</Button>

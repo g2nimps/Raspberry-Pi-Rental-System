@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Row, Col, Container, Form, Button } from 'react-bootstrap';
 import './Equipment.css';
 import './Checkin.css';
@@ -73,17 +73,17 @@ export default function Checkin(){
                     // console.log(rentals[i])
                     //console.log(kitBarcode + " vs " + rentals[i].kit_barcode)
                     // console.log(pantherId + " vs " + rentals[i].student_panther_id)
-                    if(Number(rentals[i].student_panther_id) === Number(pantherId) && rentals[i].kit_barcode == kitBarcode){
-                        console.log("should return true")
-                        console.log( rentals[i]);
+                    if(Number(rentals[i].student_panther_id) === Number(pantherId) && rentals[i].kit_barcode === kitBarcode){
+                        //console.log("should return true")
+                        //console.log( rentals[i]);
                         rentalCheckIn = rentals[i];
                     }
                 }
-                if (rentalCheckIn.id !== null) {
-                    console.log("match was found")
-                    console.log(rentalCheckIn)
+                if (Object.keys(rentalCheckIn).length > 0) {
+                    //console.log("match was found")
+                    //console.log(rentalCheckIn)
                     axios.put('api/rentals/' + rentalCheckIn.id, {
-                        id: rentalCheckIn.id,
+                        id: Number(rentalCheckIn.id),
                         student_panther_id: pantherId,
                         kit_barcode: kitBarcode,
                         checkin_by: localStorage.getItem("pantherId"),
@@ -95,26 +95,25 @@ export default function Checkin(){
                     }).then(function (response) {
 
 
-                        if (isbroken == false ) {
-                            console.log('success')
+                        if (isbroken === false ) {
+                            //console.log('success')
                             setalert_message("RPI Return Successful!");
                         } else {
                         // Update Status
-                            console.log("Updating Equipment List with Broken Item")
+                           // console.log("Updating Equipment List with Broken Item")
 
 
                             axios.get('/api/equipment')
                                 .then((response) => {
-                                    // let equip_kit =  {};
-                                    for(let i = 0; i < response.data.length; i++){
-                                        if (response.data[i].barcode == kitBarcode){
-                                            //If equipment is late add to list
-                                            console.log(response.data[i])                                                
-                                            equip_kit = response.data[i];
+                                    let equip_kit =  {};
+                                        for(let i = 0; i < response.data.length; i++){
+                                            if (response.data[i].barcode === kitBarcode){
+                                                //If equipment is late add to list
+                                                equip_kit = response.data[i];
+                                            }
                                         }
-                                    }
-                                    console.log("equip_kit")
-                                    // console.log(equip_kit)
+                                        console.log("equip_kit")
+                                        console.log(equip_kit)
                                         // Create a PUT for updating value
 
                                     axios.put('http://localhost:8080/api/equipment/' + equip_kit.id, {
@@ -126,15 +125,14 @@ export default function Checkin(){
                                         barcode: equip_kit.barcode
                                     }).then(function (response) {
 
-                                        console.log('success + broken information stored')
+                                        //console.log('success + broken information stored')
                                         setalert_message("RPI Return Completed | Status Updated To DAMAGED");
-                                    }) .catch(function(err){
+                                    }).catch(function(err){
                                         console.log(err);
                                         setalert_message("Return Completed, But Error with RPI Condition Update");
                                     })
 
-                                })
-                                .catch(function(err){
+                                }).catch(function(err){
                                     console.log(err);
                                     setalert_message("Return Completed, But Error with RPI Condition Retrieval");
                                 })
@@ -146,6 +144,9 @@ export default function Checkin(){
                         console.log(err);
                         setalert_message("Error with RPI Return Submission");
                     })
+                } else {
+                    setalert_message("Error: No Rental Found for Student/ RPI Barcode Pairing");
+
                 }
             })
 
@@ -159,7 +160,7 @@ export default function Checkin(){
                 <Col xs={9} className="column equipColumn">
                     <h1>Return Raspberry Pi Rental</h1>
                     <Form>
-                        <AlertDismissible variant={alert_message !== "RPI Return Successful!" ? 'danger' : 'success'} message={alert_message}/>
+                        <AlertDismissible variant={(alert_message !== "RPI Return Successful!") && (alert_message !== "RPI Return Completed | Status Updated To DAMAGED") ? 'danger' : 'success'} message={alert_message}/>
 
                         <Form.Row>
                             <Form.Group as={Col}>

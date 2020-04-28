@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Row, Col, Table, Container, Button} from 'react-bootstrap';
 import './Equipment.css';
 import BasicSideNav from './Components/basic-sidenav';
@@ -14,13 +14,17 @@ class Rental extends React.Component{
         table: []
     }
     location = useHistory.bind(this);
-    componentWillReceiveProps(nextProps ) {
-        const { location, history, match } = this.props;
+    UNSAFE_componentWillReceiveProps(nextProps ) {
+        const { history } = this.props;
         this.props.location.pathname = history.location.pathname;
         console.log(this.props.location.pathname);
     }
-    componentDidUpdate() {
-        this.fetchData();
+    UNSAFE_componentWillMount() {
+        setInterval(() => {
+            this.setState( () => {
+                this.fetchData();
+            });
+        }, 700);
     }
     componentDidMount() {
         this.fetchData();
@@ -31,7 +35,7 @@ class Rental extends React.Component{
 
                 let table = response.data;
                 console.log(table);
-                if (this.props.location.pathname == "/rental-late") {
+                if (this.props.location.pathname === "/rental-late") {
                     const lateRentals = [];
                     let today = new Date();
                     for(let i = 0; i < response.data.length; i++){
@@ -96,7 +100,7 @@ class Rental extends React.Component{
                     <Row className="inventory">
                         <BasicSideNav/>
                         <Col xs={9} className="column equipColumn">
-                            <h1>Rentals | {this.props.location.pathname == "/rental-late" ? 'Late Raspberry Pi Checkouts' : 'All Raspberry Pi Checkouts'}</h1>
+                            <h1>Rentals | {this.props.location.pathname === "/rental-late" ? 'Late Raspberry Pi Checkouts' : 'All Raspberry Pi Checkouts'}</h1>
                             <Table striped bordered hover responsive variant="dark">
                                 <thead>
                                 <tr>
@@ -113,11 +117,11 @@ class Rental extends React.Component{
                                 <tbody>
                                 {this.state.table.map(item => <tr key={item.id}>
                                     <td>{item.id}</td>
-                                    <td><Badge variant={this.props.location.pathname == "/rental-late" ? 'danger' : 'light'}>{item.check_in_date}</Badge></td>
+                                    <td><Badge variant={this.props.location.pathname === "/rental-late" ? 'danger' : 'light'}>{item.check_in_date}</Badge></td>
                                     <td>{item.checkin_by}</td>
                                     <td>{item.checkout_by}</td>
                                     <td><Badge variant="secondary">{item.checkout_date}</Badge></td>
-                                    <td><Badge variant={this.props.location.pathname == "/rental-late" ? 'danger' : 'primary'}>{item.due_date}</Badge></td>
+                                    <td><Badge variant={this.props.location.pathname === "/rental-late" ? 'danger' : 'primary'}>{item.due_date}</Badge></td>
                                     <td>{item.kit_barcode}</td>
                                     <td>{item.student_panther_id}</td>
                                 </tr>)}
