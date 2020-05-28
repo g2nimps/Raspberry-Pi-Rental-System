@@ -9,6 +9,9 @@ import javax.persistence.*;
 import java.util.Objects;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+/**
+ *
+ */
 @Entity
 @Table(name = "user")
 @EntityListeners(AuditingEntityListener.class)
