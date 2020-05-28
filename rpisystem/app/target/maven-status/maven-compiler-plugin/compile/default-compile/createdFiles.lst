@@ -1,0 +1,8 @@
+com\nimps\rpisystem\rpisystem\Controller\UserController.class
+com\nimps\rpisystem\rpisystem\Controller\EquipmentController.class
+com\nimps\rpisystem\rpisystem\Controller\SettingsController.class
+com\nimps\rpisystem\rpisystem\Services\SettingsServices.class
+com\nimps\rpisystem\rpisystem\Settings.class
+com\nimps\rpisystem\rpisystem\Repository\SettingsRepo.class
+com\nimps\rpisystem\rpisystem\Services\ISettingsService.class
+com\nimps\rpisystem\rpisystem\Controller\RentalController.class
